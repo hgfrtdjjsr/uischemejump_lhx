@@ -1,34 +1,13 @@
+# coding=utf-8
+__author__ = 'lixinyan'
 
 
-URL = [
-       "kttp://galaxy.test.gifshow.com/yitian/activity/halloween.html#/",
-       ]
+baseConfig = [
 
-baseConfig = {
-    'case1': {
-        "from": "yitianH5",
-        "data": {
-            "url": "test",
-            "jumpUrl": "kttp://galaxy.test.gifshow.com/yitian/activity/halloween.html#/"
-        }
-    },
+    # 跳转到相册
+    '{\\"from\\":\\"yitianH5\\",\\"data\\":{\\"url\\":\\"test\\",\\"jumpUrl\\":\\"kttp://galaxy.test.gifshow.com/yitian/activity/halloween.html#/\\"}}',
 
-    'case2': {
-        "from": "yitianH5",
-        "data": {
-            "url": "test",
-            "jumpUrl": "kttp://galaxy.test.gifshow.com/yitian/activity/halloween.html#/"
-        }
-    },
+    # 跳转到漫画脸
+    '{\\"from\\":\\"yitianH5\\",\\"data\\":{\\"crid\\":\\"\\",\\"jumpUrl\\": \\"m2u://home_cartoon\\",\\"url\\":\\"https://h5.getkwai.com/yitian/cartoon-share\\",\\"product\\":\\"WEB_YITIAN\\"}}'
 
-    'case3': {
-        "from": "yitianH5",
-        "data": {
-            "crid": "",
-            "jumpUrl": "m2u://home_cartoon",
-            "url": "https://h5.getkwai.com/yitian/cartoon-share",
-            "product": "WEB_YITIAN"
-        }
-    },
-
-}
+]
