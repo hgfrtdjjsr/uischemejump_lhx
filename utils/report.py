@@ -13,7 +13,7 @@ from .pyh import *
 import numpy
 from .Publicfunctions import *
 
-def createhtml(imgs, createHtmlname, crashLog):
+def createhtml(imgs, createHtmlname, crashLog, result):
     page = PyH('My UItest')
     add_css(page)
     maindiv = page << div(id='myMainDiv',style="padding-left:40px;padding-top:20px;")
@@ -24,12 +24,23 @@ def createhtml(imgs, createHtmlname, crashLog):
         maindiv << p('没有')
     maindiv << h2('测试机信息：')
     maindiv << p('测试机类型：', platformName, ' 测试机版本：', platformVersion)
-    shotdiv = maindiv << div(id='sheetDiv')
+    shotdiv = maindiv << div(id='sheetDiv', style="white-space: nowrap;")
     shotdiv << h2('截图：')
     print(type(imgs))
     print(type(imgs[0]))
+
+    for i in range(len(result)):
+        shotdiv << span(result[i], style="padding-left:40px;")
+    shotdiv << p(' ')
     for i in range(len(imgs)):
-        shotdiv << img(src='data:image/jpg;base64,' + imgs[i], border="1", width='430')
+        shotdiv << img(src='data:image/jpg;base64,' + imgs[i], border="1", width='230')
+    shotdiv << p(' ')
+    failname = os.getcwd() + '/fileimgs'
+    imgsname = os.listdir(failname)
+    imgsname.sort()
+    for i in range(len(imgsname)):
+        shotdiv << img(src='fileimgs/' + imgsname[i], border="1", width='230')
+
 
 
     page.printOut('%s.html' % createHtmlname)
@@ -40,8 +51,7 @@ def add_css(page):
         #oldVersion{display:inline}
         }''', type="text/css")
 if __name__ == "__main__":
-    imgs1=[[1,2],['a','s'],[1,2],[2,4],[1,2],['a','s'],[1,2],[2,4],[1,2],['a','s'],[1,2],[2,4],[1,2],['a','s'],[1,2],[2,4],[1,2],[1,2],['a','s'],[1,2],[2,4],[1,2],['a','s'],[1,2],[2,4],[1,2],['a','s'],[1,2],[2,4],[1,2],['a','s'],[1,2],[2,4],[1,2],[1,2],['a','s'],[1,2],[2,4],[1,2],['a','s'],[1,2],[2,4],[1,2],['a','s'],[1,2],[2,4],[1,2],['a','s'],[1,2],[2,4],[1,2],[1,2],['a','s'],[1,2],[2,4],[1,2],['a','s'],[1,2],[2,4],[1,2],['a','s'],[1,2],[2,4],[1,2],['a','s'],[1,2],[2,4],[1,2],['a','s'],[1,2],[2,4],[1,2],['a','s'],[1,2],[2,4],[1,2],['a','s'],[1,2],[2,4],[1,2],['a','s'],[1,2],[2,4]]
     imgs2=[]
-    imgs1 = numpy.array(imgs1)
+    imgs1 = []
     # imgs2 = numpy.array(imgs2)
     createhtml(imgs1, imgs2)
