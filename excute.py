@@ -22,6 +22,12 @@ class m2utestcase():
         self.driver = appium_start()
         time.sleep(3)
 
+    def setUp1(self):
+        warnings.simplefilter("ignore", ResourceWarning)
+        self.driver = appium_start1()
+        time.sleep(3)
+        self.driver.quit()
+
     def test_startapp(self):
         time.sleep(3)
         imgs = ''
@@ -36,6 +42,8 @@ class m2utestcase():
             return imgs
 
     def test_clipper(self, casenum):
+        self.setUp1()
+        time.sleep(3)
         startservice = os.popen('adb shell am startservice ca.zgrs.clipper/.ClipboardService').read()
         if 'Error' in startservice:
             print('未启动广播服务，请检查')
@@ -64,21 +72,22 @@ class m2utestcase():
     def execute(self):
         result = []
         imgs = []
+        crashLog = ''
         try:
-        #     filename = 'img.txt'
-        #     crashlog = os.popen("adb logcat *:F | grep \"com.kwai.m2u\"")
-        #     for casenum in range(len(baseConfig)):
-        #         self.test_clipper(casenum)
-        #         self.setUp()
-        #         time.sleep(3)
-        #         img = self.test_startapp()
-        #         time.sleep(3)
-        #         imgs.append(img)
-        #     os.system("ps -ef | grep logcat | grep -v grep | awk '{print $2}' | xargs kill -9")
-        #     crashLog = str(crashlog.read())
-        #     crashlog.close()
-        #     with open(filename, 'w') as file:
-        #         file.write(json.dumps(imgs))
+            filename = 'img.txt'
+            crashlog = os.popen("adb logcat *:F | grep \"com.kwai.m2u\"")
+            for casenum in range(len(baseConfig)):
+                self.test_clipper(casenum)
+                self.setUp()
+                time.sleep(3)
+                img = self.test_startapp()
+                time.sleep(3)
+                imgs.append(img)
+            os.system("ps -ef | grep logcat | grep -v grep | awk '{print $2}' | xargs kill -9")
+            crashLog = str(crashlog.read())
+            crashlog.close()
+            with open(filename, 'w') as file:
+                file.write(json.dumps(imgs))
             a = os.getcwd() + '/img.txt'
             with open(a, 'r') as file:
                 imgs = file.read()
@@ -96,9 +105,12 @@ class m2utestcase():
         finally:
             print(result)
             # 运行截图+html命名+崩溃日志+对比图片+对比结果
-            # createhtml(imgs, datetime.datetime.now().strftime('%Y-%m-%d %H:%M:%S')+'imgs', crashLog)
-            createhtml(imgs, datetime.datetime.now().strftime('%Y-%m-%d %H:%M:%S') + 'imgs', 'crashLog', result)
+            createhtml(imgs, datetime.datetime.now().strftime('%Y-%m-%d %H:%M:%S') + 'imgs', crashLog, result)
 
 if __name__ == "__main__":
-    m2utestcase = m2utestcase()
-    m2utestcase.execute()
+    try:
+        m2utestcase = m2utestcase()
+        m2utestcase.execute()
+    except Exception as e:
+            print('错误日志：' + str(e))
+            traceback.print_exc()

@@ -22,6 +22,23 @@ def appium_start():
 
     driver = webdriver.Remote('http://0.0.0.0:4723/wd/hub', desired_caps)
     return driver
+
+def appium_start1():
+    desired_caps = {}
+    desired_caps['platformName'] = 'Android'
+    desired_caps['platformVersion'] = platformVersion
+    desired_caps['deviceName'] = 'Android'
+    desired_caps['unicodeKeyboard'] = True
+    desired_caps['resetKeyboard'] = True
+    desired_caps['fullReset'] = False
+    desired_caps['noReset'] = True
+    desired_caps['recreateChromeDriverSessions'] = True
+    desired_caps['appPackage'] = 'ca.zgrs.clipper'
+    desired_caps['appActivity'] = '.Main'
+
+    driver = webdriver.Remote('http://0.0.0.0:4723/wd/hub', desired_caps)
+    return driver
+
 def uninstallapk(self):
     if self.driver.is_app_installed("com.kwai.m2u"):  # 判断指定APP是否已安装
         print("已安装一甜，现在执行卸载")
