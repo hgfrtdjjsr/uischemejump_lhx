@@ -13,6 +13,7 @@
 
 单版本js跳转使用：
 
+下载clipper apk链接：https://github.com/majido/clipper/releases/download/v1.2.1/clipper.apk
 1、打开uischemejump
 2、如果需要增加js跳转url，打开utils/ConfigInfo.py 配置文件，将js的跳转地址添加进去
 3、运行脚本：python excute.py ，会将ConfigInfo文件中所有的js跳转都执行一遍，并生成html文件

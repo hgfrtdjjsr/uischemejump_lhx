@@ -10,6 +10,7 @@ import traceback
 import json
 import argparse
 from utils.ConfigInfo import *
+from utils.Publicfunctions import appium_start1
 from utils.report import *
 import datetime
 import base64
@@ -17,43 +18,78 @@ from skimage.metrics import structural_similarity
 import cv2
 
 class m2utestcase():
-    def setUp(self):
-        warnings.simplefilter("ignore", ResourceWarning)
-        self.driver = appium_start()
-        time.sleep(3)
+
 
     def setUp1(self):
         warnings.simplefilter("ignore", ResourceWarning)
+        time.sleep(1)
         self.driver = appium_start1()
         time.sleep(3)
         self.driver.quit()
 
     def test_startapp(self):
+        warnings.simplefilter("ignore", ResourceWarning)
+        time.sleep(2)
+        self.driver = appium_start()
         time.sleep(3)
         imgs = ''
         try:
             time.sleep(10)
             shot = self.driver.get_screenshot_as_base64()
+            time.sleep(1)
             imgs = shot
         except Exception as e:
             print('错误日志：' + str(e))
             traceback.print_exc()
         finally:
+            self.driver.quit()
             return imgs
 
-    def test_clipper(self, casenum):
-        self.setUp1()
+    def test_editstartapp(self):
+        warnings.simplefilter("ignore", ResourceWarning)
+        time.sleep(2)
+        self.driver = appium_start()
         time.sleep(3)
+        imgs = ''
+        try:
+            time.sleep(10)
+            element_exist = isElement(self, 'id', 'com.kwai.m2u:id/sdv_item_picture_icon', multipe=True)
+            if not element_exist:
+                self.driver.find_elements_by_id('com.kwai.m2u:id/rl_picture_mv_layout')[-3].click()
+                time.sleep(3)
+            # self.driver.find_elements_by_id('com.kwai.m2u:id/image_container')[0].click()
+            # time.sleep(5)
+            self.driver.find_elements_by_id('com.kwai.m2u:id/sdv_item_picture_icon')[0].click()
+            time.sleep(5)
+            shot = self.driver.get_screenshot_as_base64()
+            time.sleep(1)
+            imgs = shot
+        except Exception as e:
+            print('错误日志：' + str(e))
+            traceback.print_exc()
+        finally:
+            self.driver.close_app()
+            self.driver.quit()
+            return imgs
+
+    # 将内容复制到手机剪切板
+    def test_clipper(self, casenum, type):
+        self.setUp1()
+        time.sleep(1)
         startservice = os.popen('adb shell am startservice ca.zgrs.clipper/.ClipboardService').read()
         if 'Error' in startservice:
             print('未启动广播服务，请检查')
         else:
-            adbtext = os.popen("adb shell am broadcast -a clipper.set -e text \"%s\"" % ('\'' + baseConfig[casenum]+ '\'')).read()
-            print('\'' + baseConfig[casenum]+ '\'')
-            print(adbtext)
-
-    def tearDown(self):
-        self.driver.quit()
+            if type == 1:
+                adbtext = os.popen("adb shell am broadcast -a clipper.set -e text \"%s\"" % ('\'' + takephotoBaseConfig[casenum]+ '\'')).read()
+                print('\'' + takephotoBaseConfig[casenum]+ '\'')
+                print(adbtext)
+                time.sleep(1)
+            else:
+                adbtext = os.popen("adb shell am broadcast -a clipper.set -e text \"%s\"" % ('\'' + editphotoBaseConfig[casenum] + '\'')).read()
+                print('\'' + editphotoBaseConfig[casenum] + '\'')
+                print(adbtext)
+                time.sleep(1)
 
     def compare_image(self, path_image1, path_image2):
         fh = open('imagetosave.png', 'wb')
@@ -76,12 +112,17 @@ class m2utestcase():
         try:
             filename = 'img.txt'
             crashlog = os.popen("adb logcat *:F | grep \"com.kwai.m2u\"")
-            for casenum in range(len(baseConfig)):
-                self.test_clipper(casenum)
-                self.setUp()
+            for casenum in range(len(takephotoBaseConfig)):
+                self.test_clipper(casenum, 1)
                 time.sleep(3)
                 img = self.test_startapp()
+                time.sleep(1)
+                imgs.append(img)
+            for casenum in range(len(editphotoBaseConfig)):
+                self.test_clipper(casenum, 2)
                 time.sleep(3)
+                img = self.test_editstartapp()
+                time.sleep(1)
                 imgs.append(img)
             os.system("ps -ef | grep logcat | grep -v grep | awk '{print $2}' | xargs kill -9")
             crashLog = str(crashlog.read())
