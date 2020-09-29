@@ -10,7 +10,6 @@ import traceback
 import json
 import argparse
 from utils.ConfigInfo import *
-from utils.Publicfunctions import appium_start1
 from utils.report import *
 import datetime
 import base64

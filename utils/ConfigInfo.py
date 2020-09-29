@@ -4,37 +4,37 @@ __author__ = 'lixinyan'
 
 takephotoBaseConfig = [
 
-    # # 拍照页，应用贴纸，打开贴纸面板 y
-    # '{\\"from\\":\\"yitianH5\\",\\"data\\":{\\"jumpUrl\\":\\"m2u://m2u_home/sticker?materialId=11653675879495264054&catId=10&openSticker=1&jumpStrategy=0\\"}}',
-    # # 拍视频页，应用贴纸，不打开贴纸面板 y
-    # '{\\"from\\":\\"yitianH5\\",\\"data\\":{\\"jumpUrl\\":\\"m2u://m2u_home/sticker?materialId=11653675879495264054&catId=10&openSticker=0&jumpStrategy=1\\"}}',
-    # # 应用音乐，应用贴纸，打开贴纸面板 y
-    # '{\\"from\\":\\"yitianH5\\",\\"data\\":{\\"jumpUrl\\":\\"m2u://m2u_home/sticker?materialId=11653675879495264054&catId=10&openSticker=1&musicId=13849353500971794162\\"}}',
-    # # 应用不存在贴纸，打开贴纸面板 y
-    # '{\\"from\\":\\"yitianH5\\",\\"data\\":{\\"jumpUrl\\":\\"m2u://m2u_home/sticker?materialId=1&catId=10&openSticker=1\\"}}',
-    #
-    # # 应用音乐，应用MV，打开MV面板 y
-    # '{\\"from\\":\\"yitianH5\\",\\"data\\":{\\"jumpUrl\\":\\"m2u://m2u_home/mv?mvMaterialId=4592210740139934656&openMVBoard=1&musicId=13849353500971794162\\"}}',
-    # # 拍照页，应用MV，不打开MV面板 y
-    # '{\\"from\\":\\"yitianH5\\",\\"data\\":{\\"jumpUrl\\":\\"m2u://m2u_home/mv?mvMaterialId=4592210740139934656&openMVBoard=0&jumpStrategy=0\\"}}',
-    # # 拍视频页， 应用不存在MV，打开MV面板 y
-    # '{\\"from\\":\\"yitianH5\\",\\"data\\":{\\"jumpUrl\\":\\"m2u://m2u_home/mv?mvMaterialId=4&openMVBoard=1&jumpStrategy=1\\"}}',
-    #
-    # # 美颜-染发-落日橙，拍视频页 n
-    # '{\\"from\\":\\"yitianH5\\",\\"data\\":{\\"jumpUrl\\":\\"m2u://m2u_home/beauty?materialId=14491845897280770035&jumpStrategy=1\\"}}',
-    #
-    # # 卡点视频-儿童节 y
-    # '{\\"from\\":\\"yitianH5\\",\\"data\\":{\\"jumpUrl\\":\\"m2u://home_photomovie/16296650741246357122\\"}}',
-    # # 热拍-难道我又我又初恋了 y
-    # '{\\"from\\":\\"yitianH5\\",\\"data\\":{\\"jumpUrl\\":\\"m2u://home_hotshot/2416643655248031735\\"}}',
-    # # 魔法抠图-霓虹光圈 修图
-    # '{\\"from\\":\\"yitianH5\\",\\"data\\":{\\"jumpUrl\\":\\"m2u://home_cutout/11078933340716172452\\"}}',
-    # # 全家福 y
-    # '{\\"from\\":\\"yitianH5\\",\\"data\\":{\\"jumpUrl\\":\\"m2u://home_family\\"}}',
-    # # 漫画脸-样式2 选择拍照+修图
-    # '{\\"from\\":\\"yitianH5\\",\\"data\\":{\\"jumpUrl\\":\\"m2u://home_cartoon/3\\"}}',
-    # # 景深虚化-动感 修图
-    # '{\\"from\\":\\"yitianH5\\",\\"data\\":{\\"jumpUrl\\":\\"m2u://home_virtual/motion\\"}}',
+    # 拍照页，应用贴纸，打开贴纸面板 y
+    '{\\"from\\":\\"yitianH5\\",\\"data\\":{\\"jumpUrl\\":\\"m2u://m2u_home/sticker?materialId=11653675879495264054&catId=10&openSticker=1&jumpStrategy=0\\"}}',
+    # 拍视频页，应用贴纸，不打开贴纸面板 y
+    '{\\"from\\":\\"yitianH5\\",\\"data\\":{\\"jumpUrl\\":\\"m2u://m2u_home/sticker?materialId=11653675879495264054&catId=10&openSticker=0&jumpStrategy=1\\"}}',
+    # 应用音乐，应用贴纸，打开贴纸面板 y
+    '{\\"from\\":\\"yitianH5\\",\\"data\\":{\\"jumpUrl\\":\\"m2u://m2u_home/sticker?materialId=11653675879495264054&catId=10&openSticker=1&musicId=13849353500971794162\\"}}',
+    # 应用不存在贴纸，打开贴纸面板 y
+    '{\\"from\\":\\"yitianH5\\",\\"data\\":{\\"jumpUrl\\":\\"m2u://m2u_home/sticker?materialId=1&catId=10&openSticker=1\\"}}',
+
+    # 应用音乐，应用MV，打开MV面板 y
+    '{\\"from\\":\\"yitianH5\\",\\"data\\":{\\"jumpUrl\\":\\"m2u://m2u_home/mv?mvMaterialId=4592210740139934656&openMVBoard=1&musicId=13849353500971794162\\"}}',
+    # 拍照页，应用MV，不打开MV面板 y
+    '{\\"from\\":\\"yitianH5\\",\\"data\\":{\\"jumpUrl\\":\\"m2u://m2u_home/mv?mvMaterialId=4592210740139934656&openMVBoard=0&jumpStrategy=0\\"}}',
+    # 拍视频页， 应用不存在MV，打开MV面板 y
+    '{\\"from\\":\\"yitianH5\\",\\"data\\":{\\"jumpUrl\\":\\"m2u://m2u_home/mv?mvMaterialId=4&openMVBoard=1&jumpStrategy=1\\"}}',
+
+    # 美颜-染发-落日橙，拍视频页 n
+    '{\\"from\\":\\"yitianH5\\",\\"data\\":{\\"jumpUrl\\":\\"m2u://m2u_home/beauty?materialId=14491845897280770035&jumpStrategy=1\\"}}',
+
+    # 卡点视频-儿童节 y
+    '{\\"from\\":\\"yitianH5\\",\\"data\\":{\\"jumpUrl\\":\\"m2u://home_photomovie/16296650741246357122\\"}}',
+    # 热拍-难道我又我又初恋了 y
+    '{\\"from\\":\\"yitianH5\\",\\"data\\":{\\"jumpUrl\\":\\"m2u://home_hotshot/2416643655248031735\\"}}',
+    # 魔法抠图-霓虹光圈 修图
+    '{\\"from\\":\\"yitianH5\\",\\"data\\":{\\"jumpUrl\\":\\"m2u://home_cutout/11078933340716172452\\"}}',
+    # 全家福 y
+    '{\\"from\\":\\"yitianH5\\",\\"data\\":{\\"jumpUrl\\":\\"m2u://home_family\\"}}',
+    # 漫画脸-样式2 选择拍照+修图
+    '{\\"from\\":\\"yitianH5\\",\\"data\\":{\\"jumpUrl\\":\\"m2u://home_cartoon/3\\"}}',
+    # 景深虚化-动感 修图
+    '{\\"from\\":\\"yitianH5\\",\\"data\\":{\\"jumpUrl\\":\\"m2u://home_virtual/motion\\"}}',
     # 神仙换脸-校园女神 选择拍照+修图
     '{\\"from\\":\\"yitianH5\\",\\"data\\":{\\"jumpUrl\\":\\"m2u://home_changeface/8104911742779980083\\"}}'
 ]
