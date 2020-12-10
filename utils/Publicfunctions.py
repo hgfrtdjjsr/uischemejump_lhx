@@ -55,7 +55,7 @@ def get_windowsize(self, x1, y1, x2, y2):
     y = self.driver.get_window_size()['height']
     self.driver.swipe(x1 * x, y1 * y, x2 * x, y2 * y, 1000)
 
-def isElement(self,identifyBy,c, multipe = False, wait = 30):
+def isElement(self,identifyBy,c, multipe = False, wait = 10):
     '''
     一个元素是否存在，考虑到网络、性能等因素，如果10s一个元素还未检测到，说明没有这个元素
     Usage:

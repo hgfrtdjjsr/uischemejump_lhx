@@ -12,8 +12,10 @@ sys.path.append(rootPath)
 from .pyh import *
 import numpy
 from .Publicfunctions import *
+from utils.ConfigInfo import *
 
-def createhtml(imgs, createHtmlname, crashLog, result):
+
+def createhtml(imgs, createHtmlname, crashLog, imgsname):
     page = PyH('My UItest')
     add_css(page)
     maindiv = page << div(id='myMainDiv',style="padding-left:40px;padding-top:20px;")
@@ -26,22 +28,25 @@ def createhtml(imgs, createHtmlname, crashLog, result):
     maindiv << p('测试机类型：', platformName, ' 测试机版本：', platformVersion)
     shotdiv = maindiv << div(id='sheetDiv', style="white-space: nowrap;")
     shotdiv << h2('截图：')
-    print(type(imgs))
-    print(type(imgs[0]))
-
-    for i in range(len(result)):
-        shotdiv << span(result[i], style="padding-left:40px;")
-    shotdiv << p(' ')
+    # print(type(imgs))
+    # print(type(imgs[0]))
+    # for i in range(len(result)):
+    #     shotdiv << span(result[i], style="padding-left:40px;")
+    # shotdiv << p(' ')
+    mytab = page << table(style="padding-left:40px;")
+    tr2 = mytab << tr()
     for i in range(len(imgs)):
-        shotdiv << img(src='data:image/jpg;base64,' + imgs[i], border="1", width='230')
-    shotdiv << p(' ')
-    failname = os.getcwd() + '/fileimgs'
-    imgsname = os.listdir(failname)
-    imgsname.sort()
-    for i in range(len(imgsname)):
-        shotdiv << img(src='fileimgs/' + imgsname[i], border="1", width='230')
-
-
+        td1 = tr2 << td()
+        td1 << p(imgsname[i])
+        td1 <<  img(src='data:image/jpg;base64,' + imgs[i], border="1", width='230')
+        # shotdiv << div(imgsname[i])
+        # shotdiv << img(src='data:image/jpg;base64,' + imgs[i], border="1", width='230')
+    # shotdiv << p(' ')
+    # failname = os.getcwd() + '/fileimgs'
+    # imgsname = os.listdir(failname)
+    # imgsname.sort()
+    # for i in range(len(imgsname)):
+    #     shotdiv << img(src='fileimgs/' + imgsname[i], border="1", width='230')
 
     page.printOut('%s.html' % createHtmlname)
 

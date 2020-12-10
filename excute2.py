@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 # author : lixinyan
-
+"""html文件跳转"""
 from utils.Publicfunctions import *
 import time
 import os

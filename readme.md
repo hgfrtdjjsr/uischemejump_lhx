@@ -12,7 +12,7 @@
     https://github.com/majido/clipper
 
 单版本js跳转使用：
-
+前置条件：登陆（测社区） 相册第一张图是人脸图（测修图）
 下载clipper apk链接：https://github.com/majido/clipper/releases/download/v1.2.1/clipper.apk
 1、打开uischemejump
 2、如果需要增加js跳转url，打开utils/ConfigInfo.py 配置文件，将js的跳转地址添加进去
