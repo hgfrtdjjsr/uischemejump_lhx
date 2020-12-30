@@ -49,6 +49,7 @@ def createhtml(imgs, createHtmlname, crashLog, imgsname):
     #     shotdiv << img(src='fileimgs/' + imgsname[i], border="1", width='230')
 
     page.printOut('%s.html' % createHtmlname)
+    print('生成html：'+'%s.html' % createHtmlname)
 
 def add_css(page):
     page.head << style('''

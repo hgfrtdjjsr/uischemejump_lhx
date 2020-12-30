@@ -9,7 +9,7 @@ import warnings
 import traceback
 import json
 import argparse
-from utils.ConfigInfo import *
+from utils.ConfigInfo1 import *
 from utils.report import *
 import datetime
 import base64
@@ -24,7 +24,10 @@ class m2utestcase():
         time.sleep(1)
         self.driver = appium_start1()
         time.sleep(3)
-        self.driver.quit()
+        try:
+            self.driver.quit()
+        except:
+            pass
 
     def test_startapp(self):
         warnings.simplefilter("ignore", ResourceWarning)
@@ -38,10 +41,13 @@ class m2utestcase():
             time.sleep(1)
             imgs = shot
         except Exception as e:
-            print('错误日志：' + str(e))
+            print( str(e))
         finally:
-            self.driver.quit()
-            return imgs
+            try:
+                self.driver.quit()
+                return imgs
+            except:
+                return imgs
 
     def test_editstartapp(self):
         warnings.simplefilter("ignore", ResourceWarning)
@@ -63,11 +69,14 @@ class m2utestcase():
             time.sleep(1)
             imgs = shot
         except Exception:
-            print('错误日志：' + traceback.print_exc())
+            print(traceback.print_exc())
         finally:
-            self.driver.close_app()
-            self.driver.quit()
-            return imgs
+            try:
+                self.driver.close_app()
+                self.driver.quit()
+                return imgs
+            except:
+                return imgs
 
     def test_editplayapp(self):
         warnings.simplefilter("ignore", ResourceWarning)
@@ -114,11 +123,13 @@ class m2utestcase():
             time.sleep(1)
             imgs = shot
         except Exception:
-            print('错误日志：' + traceback.print_exc())
+            print(traceback.print_exc())
         finally:
-            self.driver.close_app()
-            self.driver.quit()
-            return imgs
+            try:
+                self.driver.quit()
+                return imgs
+            except:
+                return imgs
 
     # 将内容复制到手机剪切板
     def test_clipper(self, casenum, type):
@@ -204,16 +215,16 @@ class m2utestcase():
             #     path_image2 = imgs[i]
                 # a = self.compare_image(path_image1, path_image2)
                 # result.append(a)
-        except Exception as e:
-            print('错误日志：' + traceback.print_exc())
+        except Exception:
+            print(traceback.print_exc())
         finally:
             print(result)
             # 运行截图+html命名+崩溃日志+对比图片+对比结果
-            createhtml(imgs, datetime.datetime.now().strftime('%Y-%m-%d %H:%M:%S') + 'imgs', crashLog, result, imgsname)
+            createhtml(imgs, datetime.datetime.now().strftime('%Y-%m-%d %H:%M:%S') + 'imgs', crashLog, imgsname)
 
 if __name__ == "__main__":
     try:
         m2utestcase = m2utestcase()
         m2utestcase.execute()
     except Exception as e:
-        print('错误日志：' + traceback.print_exc())
+        print(traceback.print_exc())
