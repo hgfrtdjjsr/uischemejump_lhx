@@ -140,17 +140,20 @@ class m2utestcase():
             print('未启动广播服务，请检查')
         else:
             if type == 1:
-                adbtext = os.popen("adb shell am broadcast -a clipper.set -e text \"%s\"" % ('\'' + takephotoBaseConfig[casenum][1] + '\'')).read()
+                adbtext = os.popen("adb shell am broadcast -a clipper.set -e text \"%s\"" % ('\'{\\"from\\":\\"yitianH5\\",\\"data\\":{\\"jumpUrl\\":\\"' + takephotoBaseConfig[casenum][1] + '\\"}}\'')).read()
+                
                 print('\'' + takephotoBaseConfig[casenum][1]+ '\'')
                 print(adbtext)
                 time.sleep(1)
             elif type == 2:
-                adbtext = os.popen("adb shell am broadcast -a clipper.set -e text \"%s\"" % ('\'' + editphotoBaseConfig[casenum][1] + '\'')).read()
+                adbtext = os.popen("adb shell am broadcast -a clipper.set -e text \"%s\"" % ('\'{\\"from\\":\\"yitianH5\\",\\"data\\":{\\"jumpUrl\\":\\"' + editphotoBaseConfig[casenum][1] + '\\"}}\'')).read()
+
                 print('\'' + editphotoBaseConfig[casenum][1] + '\'')
                 print(adbtext)
                 time.sleep(1)
             elif type == 3:
-                adbtext = os.popen("adb shell am broadcast -a clipper.set -e text \"%s\"" % ('\'' + editphotoPlayConfig[casenum][1] + '\'')).read()
+                adbtext = os.popen("adb shell am broadcast -a clipper.set -e text \"%s\"" % ('\'{\\"from\\":\\"yitianH5\\",\\"data\\":{\\"jumpUrl\\":\\"' + editphotoPlayConfig[casenum][1] + '\\"}}\'')).read()
+
                 print('\'' + editphotoPlayConfig[casenum][1] + '\'')
                 print(adbtext)
                 time.sleep(1)
