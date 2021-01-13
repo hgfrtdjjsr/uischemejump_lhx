@@ -142,19 +142,19 @@ class m2utestcase():
             if type == 1:
                 adbtext = os.popen("adb shell am broadcast -a clipper.set -e text \"%s\"" % ('\'{\\"from\\":\\"yitianH5\\",\\"data\\":{\\"jumpUrl\\":\\"' + takephotoBaseConfig[casenum][1] + '\\"}}\'')).read()
                 
-                print('\'' + takephotoBaseConfig[casenum][1]+ '\'')
+                print('跳转页面：' + takephotoBaseConfig[casenum][0])
                 print(adbtext)
                 time.sleep(1)
             elif type == 2:
                 adbtext = os.popen("adb shell am broadcast -a clipper.set -e text \"%s\"" % ('\'{\\"from\\":\\"yitianH5\\",\\"data\\":{\\"jumpUrl\\":\\"' + editphotoBaseConfig[casenum][1] + '\\"}}\'')).read()
 
-                print('\'' + editphotoBaseConfig[casenum][1] + '\'')
+                print('跳转页面：' + takephotoBaseConfig[casenum][0])
                 print(adbtext)
                 time.sleep(1)
             elif type == 3:
                 adbtext = os.popen("adb shell am broadcast -a clipper.set -e text \"%s\"" % ('\'{\\"from\\":\\"yitianH5\\",\\"data\\":{\\"jumpUrl\\":\\"' + editphotoPlayConfig[casenum][1] + '\\"}}\'')).read()
 
-                print('\'' + editphotoPlayConfig[casenum][1] + '\'')
+                print('跳转页面：' + takephotoBaseConfig[casenum][0])
                 print(adbtext)
                 time.sleep(1)
 
