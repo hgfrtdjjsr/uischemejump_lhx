@@ -17,8 +17,11 @@ from skimage.metrics import structural_similarity
 import cv2
 import uiautomator2 as u2
 import re
+import shutil
+
+
 localpath=os.path.abspath('.')
-imgtemporarypath = localpath + '/imgtemporarypath/'
+pic_dir = localpath + '/imgtemporarypath/'
 
 def test_startapp(d):
     warnings.simplefilter("ignore", ResourceWarning)
@@ -29,7 +32,7 @@ def test_startapp(d):
         d.app_start('com.kwai.m2u')
         time.sleep(10)
         imgname = '%s.png' % round(time.time() * 1000)
-        d.screenshot(imgtemporarypath + imgname)
+        d.screenshot(pic_dir + imgname)
         imgs = imgname
     except Exception:
         traceback.print_exc()
@@ -60,7 +63,7 @@ def test_editstartapp(d):
             pass
         time.sleep(5)
         imgname = '%s.png' % round(time.time() * 1000)
-        d.screenshot(imgtemporarypath + imgname)
+        d.screenshot(pic_dir + imgname)
         imgs = imgname
     except Exception:
         print(traceback.print_exc())
@@ -91,7 +94,7 @@ def test_editplayapp(d):
         except:
             pass
         imgname = '%s.png' % round(time.time() * 1000)
-        d.screenshot(imgtemporarypath + imgname)
+        d.screenshot(pic_dir + imgname)
         imgs = imgname
     except Exception:
         traceback.print_exc()
@@ -137,6 +140,9 @@ def compare_image(path_image1, path_image2):
     return score
 
 def execute():
+    if os.path.exists(pic_dir):
+        shutil.rmtree(pic_dir, True)
+    os.mkdir(pic_dir)
     result = []
     imgs = []
     imgsname = []
