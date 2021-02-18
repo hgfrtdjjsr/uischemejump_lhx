@@ -42,11 +42,11 @@ def createhtml(imgs, createHtmlname, crashLog, result, imgsname):
         # shotdiv << div(imgsname[i])
         # shotdiv << img(src='data:image/jpg;base64,' + imgs[i], border="1", width='230')
     # shotdiv << p(' ')
-    # failname = os.getcwd() + '/fileimgs'
+    # failname = os.getcwd() + '/contrastPng'
     # imgsname = os.listdir(failname)
     # imgsname.sort()
     # for i in range(len(imgsname)):
-    #     shotdiv << img(src='fileimgs/' + imgsname[i], border="1", width='230')
+    #     shotdiv << img(src='contrastPng/' + imgsname[i], border="1", width='230')
 
     page.printOut('%s.html' % createHtmlname)
 

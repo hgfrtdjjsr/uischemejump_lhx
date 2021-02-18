@@ -12,7 +12,7 @@ sys.path.append(rootPath)
 from .pyh import *
 import numpy
 from .Publicfunctions import *
-from utils.ConfigInfo import *
+from utils.ConfigInfo_sticker import *
 
 
 def createhtml(imgs, createHtmlname, crashLog, imgsname):
@@ -26,7 +26,18 @@ def createhtml(imgs, createHtmlname, crashLog, imgsname):
         maindiv << p('没有')
     maindiv << h2('测试机信息：')
     maindiv << p('测试机类型：', platformName, ' 测试机版本：', platformVersion)
-    shotdiv = maindiv << div(id='sheetDiv', style="white-space: nowrap;")
+    maindiv << p('对照组照片，冷启动开始截图和结束截图：')
+    shotdiv = maindiv << div( style="white-space: nowrap;")
+
+    failname = os.getcwd() + '/contrastPng/'
+
+    imgsname1 = list(filter(lambda x: x.endswith('.jpg') or x.endswith('.png'), os.listdir(failname)))
+    imgsname1.sort()
+    for i in range(len(imgsname1)):
+        shotdiv << img(src='contrastPng/'+ imgsname1[i],
+                          border="1", width='260')
+
+
     shotdiv << h2('截图：')
     # print(type(imgs))
     # print(type(imgs[0]))
@@ -35,11 +46,12 @@ def createhtml(imgs, createHtmlname, crashLog, imgsname):
     # shotdiv << p(' ')
     mytab = page << table(style="padding-left:40px;")
     tr2 = mytab << tr()
-    for i in range(len(imgs)):
+    for i in range(len(imgsname)):
         td1 = tr2 << td()
         td1 << p(imgsname[i])
-        # td1 << img(src='data:image/jpg;base64,' + imgs[i], border="1", width='230')
-        td1 << img(src='imgtemporarypath/%s' %imgs[i], border="1", width='260')
+        td1 << img(src='imgtemporarypath/%s' % imgs[i][0], border="1", width='260')
+        td1 << img(src='imgtemporarypath/%s' % imgs[i][1], border="1", width='260')
+
         # shotdiv << div(imgsname[i])
         # shotdiv << img(src='data:image/jpg;base64,' + imgs[i], border="1", width='230')
     # shotdiv << p(' ')

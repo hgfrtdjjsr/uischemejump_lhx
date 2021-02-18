@@ -3,14 +3,13 @@
 # author : lixinyan
 
 from utils.Publicfunctions import *
+from utils import ConfigInfo_sticker
 import time
 import os
+
 import warnings
 import traceback
-import json
-import argparse
-from utils.ConfigInfo1 import *
-from utils.report import *
+from utils.report_sticker import *
 import datetime
 import base64
 from skimage.metrics import structural_similarity
@@ -30,10 +29,26 @@ def test_startapp(d):
     try:
         print('6.打开一甜app')
         d.app_start('com.kwai.m2u')
+        time.sleep(5)
+        print('点击同意')
+        d(resourceId="com.kwai.m2u:id/confirm_btn").click()
+        time.sleep(15)
+        print('点击取景框')
+        d(resourceId="com.kwai.m2u:id/vertical_seek_bar_group_after_inflate").click()
         time.sleep(10)
+        print('点击后置摄像头')
+        d.xpath('//*[@resource-id="com.kwai.m2u:id/top_panel"]/android.widget.FrameLayout[3]').click()
+        time.sleep(5)
         imgname = '%s.png' % round(time.time() * 1000)
         d.screenshot(pic_dir + imgname)
-        imgs = imgname
+        imgs.append(imgname)
+        # 点击拍摄按钮
+        print('点击拍摄按钮')
+        d(resourceId="com.kwai.m2u:id/rl_controller_shoot").click()
+        time.sleep(3)
+        imgname = '%s.png' % round(time.time() * 1000)
+        d.screenshot(pic_dir + imgname)
+        imgs.append(imgname)
     except Exception:
         traceback.print_exc()
     finally:
@@ -102,28 +117,17 @@ def test_editplayapp(d):
         return imgs
 
 # 将内容复制到手机剪切板
-def test_clipper(d, casenum, type):
+def test_clipper(d, casenum):
     d.app_start('ca.zgrs.clipper')
     time.sleep(1)
     startservice = os.popen('adb shell am startservice ca.zgrs.clipper/.ClipboardService').read()
     if 'Error' in startservice:
         print('未启动广播服务，请检查')
     else:
-        if type == 1:
-            adbtext = os.popen("adb shell am broadcast -a clipper.set -e text \"%s\"" % ('\'{\\"from\\":\\"yitianH5\\",\\"data\\":{\\"jumpUrl\\":\\"' + takephotoBaseConfig[casenum][1] + '\\"}}\'')).read()
-            print('跳转页面：' + takephotoBaseConfig[casenum][0])
-            print(adbtext)
-            time.sleep(1)
-        elif type == 2:
-            adbtext = os.popen("adb shell am broadcast -a clipper.set -e text \"%s\"" % ('\'{\\"from\\":\\"yitianH5\\",\\"data\\":{\\"jumpUrl\\":\\"' + editphotoBaseConfig[casenum][1] + '\\"}}\'')).read()
-            print('跳转页面：' + editphotoBaseConfig[casenum][0])
-            print(adbtext)
-            time.sleep(1)
-        elif type == 3:
-            adbtext = os.popen("adb shell am broadcast -a clipper.set -e text \"%s\"" % ('\'{\\"from\\":\\"yitianH5\\",\\"data\\":{\\"jumpUrl\\":\\"' + editphotoPlayConfig[casenum][1] + '\\"}}\'')).read()
-            print('跳转页面：' + editphotoPlayConfig[casenum][0])
-            print(adbtext)
-            time.sleep(1)
+        os.popen("adb shell am broadcast -a clipper.set -e text  \"%s\"" % (
+        '\'{\\"from\\":\\"yitianH5\\",\\"data\\":{\\"jumpUrl\\":\\"m2u://m2u_home/sticker?materialId=%s\\"}}\'' % ConfigInfo_sticker.takephotoBaseConfig[casenum][1])).read()
+        print('贴纸：' + ConfigInfo_sticker.takephotoBaseConfig[casenum][0])
+        time.sleep(1)
 
 def compare_image(path_image1, path_image2):
     fh = open('imagetosave.png', 'wb')
@@ -154,37 +158,16 @@ def execute():
         d = u2.connect(deviceId)
         crashlog = os.popen("adb logcat *:F | grep \"com.kwai.m2u\"")
         for casenum in range(len(takephotoBaseConfig)):
-            test_clipper(d, casenum, 1)
+            test_clipper(d, casenum)
             time.sleep(3)
+            os.popen('adb shell pm clear com.kwai.m2u')
             img = test_startapp(d)
             time.sleep(1)
             imgs.append(img)
             imgsname.append(takephotoBaseConfig[casenum][0])
-        for casenum in range(len(editphotoBaseConfig)):
-            test_clipper(d, casenum, 2)
-            time.sleep(3)
-            img = test_editstartapp(d)
-            time.sleep(1)
-            imgs.append(img)
-            imgsname.append(editphotoBaseConfig[casenum][0])
-        for casenum in range(len(editphotoPlayConfig)):
-            test_clipper(d, casenum, 3)
-            time.sleep(3)
-            img = test_editplayapp(d)
-            time.sleep(1)
-            imgs.append(img)
-            imgsname.append(editphotoPlayConfig[casenum][0])
         os.system("ps -ef | grep logcat | grep -v grep | awk '{print $2}' | xargs kill -9")
         crashLog = str(crashlog.read())
         crashlog.close()
-        # failname = os.getcwd() + '/contrastPng'
-        # imgsname = os.listdir(failname)
-        # imgsname.sort()
-        # for i in range(len(imgsname)):
-        #     path_image1 = failname + '/' + imgsname[i]
-        #     path_image2 = imgs[i]
-            # a = self.compare_image(path_image1, path_image2)
-            # result.append(a)
     except Exception:
         print(traceback.print_exc())
     finally:
