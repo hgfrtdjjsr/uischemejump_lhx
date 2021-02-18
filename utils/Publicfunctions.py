@@ -6,6 +6,15 @@ import time
 
 platformVersion = os.popen('adb shell getprop ro.build.version.release').read().rstrip()
 platformName = 'Android'
+def Unlocking():
+    a = os.popen('adb shell dumpsys window policy |grep "isStatusBarKeyguard"').read()
+    if "false" in a:
+        os.popen('adb shell input keyevent 26')
+    time.sleep(3)
+    os.popen('adb shell input keyevent 26')
+    time.sleep(3)
+    os.popen('adb shell input swipe 110 1500 110 200 500')
+
 
 def appium_start():
     desired_caps = {}

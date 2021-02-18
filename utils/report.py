@@ -38,7 +38,8 @@ def createhtml(imgs, createHtmlname, crashLog, imgsname):
     for i in range(len(imgs)):
         td1 = tr2 << td()
         td1 << p(imgsname[i])
-        td1 <<  img(src='data:image/jpg;base64,' + imgs[i], border="1", width='230')
+        # td1 << img(src='data:image/jpg;base64,' + imgs[i], border="1", width='230')
+        td1 << img(src='imgtemporarypath/%s' %imgs[i], border="1", width='260')
         # shotdiv << div(imgsname[i])
         # shotdiv << img(src='data:image/jpg;base64,' + imgs[i], border="1", width='230')
     # shotdiv << p(' ')
