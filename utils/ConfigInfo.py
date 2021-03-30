@@ -9,10 +9,10 @@ takephotoBaseConfig = [
     ['拍前美妆', "m2u://m2u_home/beauty?beautyId=makeup&catId=yt_kouhong&materialId=kh_nvshen&value=90"],
     ['跟拍-奶凶喵', "m2u://followshoot?materialId=5668651678452984715&catId=7"],
     ['玩图首页', "m2u://playphoto"],
-    ['卡点视频-儿童节', "m2u://home_photomovie?materialId=16296650741246357122"],
+    ['卡点视频-慢热', "m2u://home_photomovie?materialId=3373039905440986926"],
     ['贴图', "m2u://materialcenter?func=pe_chartlet"],
-#    ['贴图+非hot的tab', '{\\"from\\":\\"yitianH5\\",\\"data\\":{\\"jumpUrl\\":\\"m2u://materialcenter?func=pe_chartlet&catId=14203952946683646248\\"}}'],
-#    ['贴图+hot的tab+素材', '{\\"from\\":\\"yitianH5\\",\\"data\\":{\\"jumpUrl\\":\\"m2u://materialcenter?func=pe_chartlet&catId=1001&materialId=11490196417641268516\\"}}'],
+   ['贴图+非hot的tab', '{\\"from\\":\\"yitianH5\\",\\"data\\":{\\"jumpUrl\\":\\"m2u://materialcenter?func=pe_chartlet&catId=14203952946683646248\\"}}'],
+   ['贴图+hot的tab+素材', '{\\"from\\":\\"yitianH5\\",\\"data\\":{\\"jumpUrl\\":\\"m2u://materialcenter?func=pe_chartlet&catId=1001&materialId=11490196417641268516\\"}}'],
     ['贴图+非hot的tab+素材', "m2u://materialcenter?func=pe_chartlet&catId=12924239871261681147&materialId=1a14c76795051a89d3e7a337a1d8d096"],
     ['涂鸦', "m2u://materialcenter?func=pe_graffiti"],
     ['涂鸦笔+素材', "m2u://materialcenter?func=pe_graffiti&materialId=11337195945248630559"],
@@ -27,6 +27,7 @@ takephotoBaseConfig = [
 
 #修图类
 editphotoBaseConfig = [
+    ['249之后版本：魔法抠图-霓虹光圈', "m2u://photo_edit?func=pe_cutout&unfoldAlbum=1"],
     ['一级页-美化', "m2u://photo_edit?category=beauty"],
     ['一级页-工具', "m2u://photo_edit?category=tool"],
     ['一级页-装饰', "m2u://photo_edit?category=decorate"],
@@ -52,15 +53,15 @@ editphotoBaseConfig = [
     ['虚化-动感-100', "m2u://photo_edit?func=pe_virtual&materialId=motion&value=100"],
     ['边框+素材', "m2u://photo_edit?func=pe_border&materialId=7123618734621558273"],
 ]
-
-#修图+玩法类
+#
+# #修图+玩法类
 editphotoPlayConfig = [
-    ['魔法抠图-霓虹光圈', "m2u://home_cutout?materialId=11078933340716172452"],
-    ['漫画脸-样式3', "m2u://home_cartoon?materialId=3"],
+    # ['249之前版本：魔法抠图-霓虹光圈', "m2u://home_cutout?materialId=11078933340716172452"],
+
     ['素材中心-童话脸', "m2u://home_commonactivity?type=fairyTale"],
     ['神仙换脸-校园女神', "m2u://home_changeface?materialId=8104911742779980083"],
     ['手绘女主-宠爱百分百', "m2u://home_handdrawn?materialId=2194375317087117584"],
     ['拼图', "m2u://home_puzzle"],
 ]
 if __name__ == "__main__":
-    print(type(editphotoPlayConfig))
+    pass

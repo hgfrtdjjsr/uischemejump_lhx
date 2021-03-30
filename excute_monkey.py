@@ -19,9 +19,9 @@ import uiautomator2 as u2
 import re
 import shutil
 
+def monkeycase():
+    os.popen('adb shell monkey -p com.kwai.m2u  --ignore-crashes --throttle 1000  10000')
 
-localpath=os.path.abspath('.')
-pic_dir = localpath + '/imgtemporarypath/'
 
 def test_startapp(d):
     warnings.simplefilter("ignore", ResourceWarning)
@@ -31,9 +31,7 @@ def test_startapp(d):
         print('6.打开一甜app')
         d.app_start('com.kwai.m2u')
         time.sleep(10)
-        imgname = '%s.png' % round(time.time() * 1000)
-        d.screenshot(pic_dir + imgname)
-        imgs = imgname
+        monkeycase()
     except Exception:
         traceback.print_exc()
     finally:
@@ -46,12 +44,8 @@ def test_editstartapp(d):
     try:
         print('6.打开一甜app')
         d.app_start('com.kwai.m2u')
-        time.sleep(3)
-        d(resourceId="com.kwai.m2u:id/preview_container").click()
         time.sleep(10)
-        imgname = '%s.png' % round(time.time() * 1000)
-        d.screenshot(pic_dir + imgname)
-        imgs = imgname
+        monkeycase()
     except Exception:
         print(traceback.print_exc())
     finally:
@@ -65,24 +59,7 @@ def test_editplayapp(d):
         print('6.打开一甜app')
         d.app_start('com.kwai.m2u')
         time.sleep(10)
-        try:
-            d(resourceId="com.kwai.m2u:id/get_image_view").click()
-            time.sleep(1)
-        except:
-            pass
-        try:
-            d(resourceId="com.kwai.m2u:id/gallery_icon").click()
-            time.sleep(1)
-        except:
-            pass
-        try:
-            d(resourceId="com.kwai.m2u:id/preview_container").click()
-            time.sleep(10)
-        except:
-            pass
-        imgname = '%s.png' % round(time.time() * 1000)
-        d.screenshot(pic_dir + imgname)
-        imgs = imgname
+        monkeycase()
     except Exception:
         traceback.print_exc()
     finally:
@@ -127,13 +104,6 @@ def compare_image(path_image1, path_image2):
     return score
 
 def execute():
-    if os.path.exists(pic_dir):
-        shutil.rmtree(pic_dir, True)
-    os.mkdir(pic_dir)
-    result = []
-    imgs = []
-    imgsname = []
-    crashLog = ''
     try:
         Unlocking()
         readDeviceId = list(os.popen('adb devices').readlines())
@@ -143,42 +113,22 @@ def execute():
         for casenum in range(len(takephotoBaseConfig)):
             test_clipper(d, casenum, 1)
             time.sleep(3)
-            img = test_startapp(d)
-            time.sleep(1)
-            imgs.append(img)
-            imgsname.append(takephotoBaseConfig[casenum][0])
+            test_startapp(d)
         for casenum in range(len(editphotoBaseConfig)):
             test_clipper(d, casenum, 2)
             time.sleep(3)
-            img = test_editstartapp(d)
+            test_editstartapp(d)
             time.sleep(1)
-            imgs.append(img)
-            imgsname.append(editphotoBaseConfig[casenum][0])
         for casenum in range(len(editphotoPlayConfig)):
             test_clipper(d, casenum, 3)
             time.sleep(3)
-            img = test_editplayapp(d)
+            test_editplayapp(d)
             time.sleep(1)
-            imgs.append(img)
-            imgsname.append(editphotoPlayConfig[casenum][0])
         os.system("ps -ef | grep logcat | grep -v grep | awk '{print $2}' | xargs kill -9")
-        crashLog = str(crashlog.read())
-        crashlog.close()
-        # failname = os.getcwd() + '/contrastPng'
-        # imgsname = os.listdir(failname)
-        # imgsname.sort()
-        # for i in range(len(imgsname)):
-        #     path_image1 = failname + '/' + imgsname[i]
-        #     path_image2 = imgs[i]
-            # a = self.compare_image(path_image1, path_image2)
-            # result.append(a)
+        print(crashlog)
     except Exception:
         print(traceback.print_exc())
-    finally:
-        print(result)
-        # 运行截图+html命名+崩溃日志+对比图片+对比结果
-        print(imgs)
-        createhtml(imgs, datetime.datetime.now().strftime('%Y-%m-%d %H:%M:%S') + 'imgs', crashLog, imgsname)
+
 
 if __name__ == "__main__":
     try:

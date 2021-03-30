@@ -49,6 +49,8 @@ def createhtml(imgs, createHtmlname, crashLog, imgsname):
     for i in range(len(imgsname)):
         td1 = tr2 << td()
         td1 << p(imgsname[i])
+        a = '\'{\"from\":\"yitianH5\",\"data\":{\"jumpUrl\":\"m2u://m2u_home/sticker?materialId=%s\"}}\'' % (imgsname[i].split('-')[-1])
+        td1 << p(a)
         td1 << img(src='imgtemporarypath/%s' % imgs[i][0], border="1", width='260')
         td1 << img(src='imgtemporarypath/%s' % imgs[i][1], border="1", width='260')
 

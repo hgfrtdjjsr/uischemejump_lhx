@@ -2,6 +2,8 @@
 # -*- coding: utf-8 -*-
 # author : lixinyan
 
+import aa
+
 from utils.Publicfunctions import *
 from utils import ConfigInfo_sticker
 import time
@@ -32,13 +34,31 @@ def test_startapp(d):
         time.sleep(5)
         print('点击同意')
         d(resourceId="com.kwai.m2u:id/confirm_btn").click()
-        time.sleep(15)
+        time.sleep(5)
+        d(resourceId="com.kwai.m2u:id/confirm_btn").click()
+        time.sleep(5)
+        d(resourceId="com.lbe.security.miui:id/permission_allow_foreground_only_button").click()
+        time.sleep(2)
+        d(resourceId="com.lbe.security.miui:id/permission_allow_foreground_only_button").click()
+        time.sleep(2)
+        d(resourceId="com.lbe.security.miui:id/permission_allow_foreground_only_button").click()
+        time.sleep(5)
+        try:
+            d(text="立即试试").click()
+        except:
+            pass
+        time.sleep(2)
         print('点击取景框')
         d(resourceId="com.kwai.m2u:id/vertical_seek_bar_group_after_inflate").click()
-        time.sleep(10)
+        time.sleep(15)
+
+        try:
+            d(text="立即试试").click()
+        except:
+            pass
         print('点击后置摄像头')
         d.xpath('//*[@resource-id="com.kwai.m2u:id/top_panel"]/android.widget.FrameLayout[3]').click()
-        time.sleep(5)
+        time.sleep(30)
         imgname = '%s.png' % round(time.time() * 1000)
         d.screenshot(pic_dir + imgname)
         imgs.append(imgname)
@@ -49,68 +69,6 @@ def test_startapp(d):
         imgname = '%s.png' % round(time.time() * 1000)
         d.screenshot(pic_dir + imgname)
         imgs.append(imgname)
-    except Exception:
-        traceback.print_exc()
-    finally:
-        return imgs
-
-def test_editstartapp(d):
-    warnings.simplefilter("ignore", ResourceWarning)
-    time.sleep(2)
-    imgs = []
-    try:
-        print('6.打开一甜app')
-        d.app_start('com.kwai.m2u')
-        time.sleep(10)
-        try:
-            d(resourceId="com.kwai.m2u:id/sdv_item_picture_icon").click()
-        except:
-            pass
-        time.sleep(1)
-        try:
-            d(resourceId="com.kwai.m2u:id/rl_picture_mv_layout").click()
-        except:
-            pass
-        time.sleep(1)
-        try:
-            d(resourceId="com.kwai.m2u:id/preview_container").click()
-        except:
-            pass
-        time.sleep(5)
-        imgname = '%s.png' % round(time.time() * 1000)
-        d.screenshot(pic_dir + imgname)
-        imgs = imgname
-    except Exception:
-        print(traceback.print_exc())
-    finally:
-        return imgs
-
-def test_editplayapp(d):
-    warnings.simplefilter("ignore", ResourceWarning)
-    time.sleep(2)
-    imgs = []
-    try:
-        print('6.打开一甜app')
-        d.app_start('com.kwai.m2u')
-        time.sleep(10)
-        try:
-            d(resourceId="com.kwai.m2u:id/get_image_view").click()
-            time.sleep(1)
-        except:
-            pass
-        try:
-            d(resourceId="com.kwai.m2u:id/gallery_icon").click()
-            time.sleep(1)
-        except:
-            pass
-        try:
-            d(resourceId="com.kwai.m2u:id/preview_container").click()
-            time.sleep(10)
-        except:
-            pass
-        imgname = '%s.png' % round(time.time() * 1000)
-        d.screenshot(pic_dir + imgname)
-        imgs = imgname
     except Exception:
         traceback.print_exc()
     finally:
@@ -129,20 +87,6 @@ def test_clipper(d, casenum):
         print('贴纸：' + ConfigInfo_sticker.takephotoBaseConfig[casenum][0])
         time.sleep(1)
 
-def compare_image(path_image1, path_image2):
-    fh = open('imagetosave.png', 'wb')
-    fh.write(base64.b64decode(path_image2))
-    fh.close()
-    imageA = cv2.imread(path_image1)
-    imageB = cv2.imread('/Users/lidoudou/PycharmProjects/uischemejump/imagetosave.png')
-
-    grayA = cv2.cvtColor(imageA, cv2.COLOR_BGR2GRAY)
-    grayB = cv2.cvtColor(imageB, cv2.COLOR_BGR2GRAY)
-
-    (score, diff) = structural_similarity(grayA, grayB, full=True)
-    print("SSIM: {}".format(score))
-    return score
-
 def execute():
     if os.path.exists(pic_dir):
         shutil.rmtree(pic_dir, True)
@@ -152,7 +96,6 @@ def execute():
     imgsname = []
     crashLog = ''
     try:
-        Unlocking()
         readDeviceId = list(os.popen('adb devices').readlines())
         deviceId = re.findall(r'^\w*\b', readDeviceId[1])[0]
         d = u2.connect(deviceId)
