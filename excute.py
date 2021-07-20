@@ -28,9 +28,9 @@ def test_startapp(d):
     time.sleep(3)
     imgs = []
     try:
-        print('6.打开一甜app')
+        # os.popen('adb shell am force-stop com.kwai.m2u')
         d.app_start('com.kwai.m2u')
-        time.sleep(10)
+        time.sleep(5)
         imgname = '%s.png' % round(time.time() * 1000)
         d.screenshot(pic_dir + imgname)
         imgs = imgname
@@ -62,24 +62,18 @@ def test_editplayapp(d):
     time.sleep(2)
     imgs = []
     try:
-        print('6.打开一甜app')
-        d.app_start('com.kwai.m2u')
-        time.sleep(10)
-        try:
-            d(resourceId="com.kwai.m2u:id/get_image_view").click()
-            time.sleep(1)
-        except:
-            pass
-        try:
-            d(resourceId="com.kwai.m2u:id/gallery_icon").click()
-            time.sleep(1)
-        except:
-            pass
-        try:
-            d(resourceId="com.kwai.m2u:id/preview_container").click()
-            time.sleep(10)
-        except:
-            pass
+        # if d(resourceId="com.kwai.m2u:id/get_image_view").exists(timeout=3):
+        #     d(resourceId="com.kwai.m2u:id/get_image_view").click()
+        #
+        # if d(resourceId="com.kwai.m2u:id/iv_home_confirm").exists(timeout=3):
+        #     d(resourceId="com.kwai.m2u:id/iv_home_confirm").click()
+        #
+        # if d(resourceId="com.kwai.m2u:id/gallery_title").exists(timeout=3):
+        #     d(resourceId="com.kwai.m2u:id/gallery_title").click()
+        #     if d(resourceId="com.kwai.m2u:id/iv_item_picture_edit_icon").exists(timeout=3):
+        #         d(resourceId="com.kwai.m2u:id/iv_item_picture_edit_icon")[5].click()
+
+
         imgname = '%s.png' % round(time.time() * 1000)
         d.screenshot(pic_dir + imgname)
         imgs = imgname
@@ -138,9 +132,19 @@ def execute():
         Unlocking()
         readDeviceId = list(os.popen('adb devices').readlines())
         deviceId = re.findall(r'^\w*\b', readDeviceId[1])[0]
+
         d = u2.connect(deviceId)
+        time.sleep(5)
+
         crashlog = os.popen("adb logcat *:F | grep \"com.kwai.m2u\"")
         for casenum in range(len(takephotoBaseConfig)):
+            os.popen('adb shell am force-stop com.kwai.m2u')
+            d.app_start('com.kwai.m2u')
+            time.sleep(5)
+            print('6.打开一甜app')
+            # d(resourceId="com.kwai.m2u:id/title_tv", text="模版").click()
+            # time.sleep(5)
+            # d.press("home")
             test_clipper(d, casenum, 1)
             time.sleep(3)
             img = test_startapp(d)
@@ -148,6 +152,11 @@ def execute():
             imgs.append(img)
             imgsname.append(takephotoBaseConfig[casenum][0])
         for casenum in range(len(editphotoBaseConfig)):
+            os.popen('adb shell am force-stop com.kwai.m2u')
+            d.app_start('com.kwai.m2u')
+            d(resourceId="com.kwai.m2u:id/title_tv", text="模版").click()
+            time.sleep(5)
+            d.press("home")
             test_clipper(d, casenum, 2)
             time.sleep(3)
             img = test_editstartapp(d)
@@ -155,7 +164,13 @@ def execute():
             imgs.append(img)
             imgsname.append(editphotoBaseConfig[casenum][0])
         for casenum in range(len(editphotoPlayConfig)):
-            test_clipper(d, casenum, 3)
+            os.popen('adb shell am force-stop com.kwai.m2u')
+            d.app_start('com.kwai.m2u')
+            # d(resourceId="com.kwai.m2u:id/title_tv", text="模版").click()
+            # time.sleep(5)
+            # d.press("home")
+            # test_clipper(d, casenum, 3)
+            os.popen('adb shell am start -d %s' %editphotoPlayConfig[casenum][1])
             time.sleep(3)
             img = test_editplayapp(d)
             time.sleep(1)

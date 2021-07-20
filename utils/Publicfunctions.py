@@ -7,13 +7,14 @@ import time
 platformVersion = os.popen('adb shell getprop ro.build.version.release').read().rstrip()
 platformName = 'Android'
 def Unlocking():
-    a = os.popen('adb shell dumpsys window policy |grep "isStatusBarKeyguard"').read()
-    if "false" in a:
-        os.popen('adb shell input keyevent 26')
-    time.sleep(3)
-    os.popen('adb shell input keyevent 26')
-    time.sleep(3)
-    os.popen('adb shell input swipe 110 1500 110 200 500')
+    a = os.popen('adb   shell dumpsys window policy|grep screenState').read()
+    if "SCREEN_STATE_OFF" in a:
+        os.popen('adb  shell input keyevent 26')
+        time.sleep(1)
+        os.popen('adb  shell input swipe 110 1800 110 100 500' )
+    else:
+        os.popen('adb shell input swipe 110 1800 110 100 500' )
+
 
 
 def appium_start():

@@ -3,9 +3,9 @@ __author__ = 'lixinyan'
 
 #直接跳转类
 takephotoBaseConfig = [
-    ['拍视频页，贴纸：猫咪脸，打开面板', "m2u://m2u_home/sticker?materialId=6473365848767430154&catId=48&openSticker=1&jumpStrategy=1"],
+    ['拍视频页，贴纸：猫咪脸，打开面板', "m2u://m2u_home/sticker?materialId=6473365848767430154&catId=48&openSticker=1"],
     ['拍视频页，贴纸：星空妆，打开面板', "m2u://m2u_home/sticker?materialId=11653675879495264054&catId=10&openSticker=1&jumpStrategy=1"],
-    ['拍照页，音乐：甜蜜暴击，MV：黑白格，打开面板', "m2u://m2u_home/mv?mvMaterialId=4592210740139934656&openMVBoard=1&musicId=13849353500971794162&jumpStrategy=0"],
+   ['拍照页，音乐：甜蜜暴击，MV：黑白格，打开面板', "m2u://m2u_home/mv?mvMaterialId=4592210740139934656&openMVBoard=1&musicId=13849353500971794162&jumpStrategy=0"],
     ['拍前美妆', "m2u://m2u_home/beauty?beautyId=makeup&catId=yt_kouhong&materialId=kh_nvshen&value=90"],
     ['跟拍-奶凶喵', "m2u://followshoot?materialId=5668651678452984715&catId=7"],
     ['玩图首页', "m2u://playphoto"],
@@ -27,10 +27,9 @@ takephotoBaseConfig = [
 
 #修图类
 editphotoBaseConfig = [
-    ['249之后版本：魔法抠图-霓虹光圈', "m2u://photo_edit?func=pe_cutout&unfoldAlbum=1"],
+    ['249之后版本：魔法抠图', "m2u://photo_edit?func=pe_cutout&unfoldAlbum=1"],
     ['一级页-美化', "m2u://photo_edit?category=beauty"],
     ['一级页-工具', "m2u://photo_edit?category=tool"],
-    ['一级页-装饰', "m2u://photo_edit?category=decorate"],
     ['一级页-特效', "m2u://photo_edit?category=effect"],
     ['风格-铃木-滤镜-50', "m2u://photo_edit?func=pe_style&materialId=10383854300615203545&catId=95&filterValue=50&makeupValue=100"],
     ['超清人像-75', "m2u://photo_edit?func=pe_hdrBeauty&hdrValue=75"],
@@ -56,12 +55,29 @@ editphotoBaseConfig = [
 #
 # #修图+玩法类
 editphotoPlayConfig = [
-    # ['249之前版本：魔法抠图-霓虹光圈', "m2u://home_cutout?materialId=11078933340716172452"],
+    ['249之前版本：魔法抠图-霓虹光圈', "m2u://home_cutout?materialId=11078933340716172452"],
 
     ['素材中心-童话脸', "m2u://home_commonactivity?type=fairyTale"],
-    ['神仙换脸-校园女神', "m2u://home_changeface?materialId=8104911742779980083"],
-    ['手绘女主-宠爱百分百', "m2u://home_handdrawn?materialId=2194375317087117584"],
-    ['拼图', "m2u://home_puzzle"],
+    ['玩图首页','m2u://playphoto'],
+    ['通用玩法-公主脸','m2u://home_commonactivity?type=fairyTale'],
+    ['通用玩法-生发屋','m2u://home_commonactivity?type=longHair'],
+    ['全家福','m2u://home_family'],
+    ['卡点视频-儿童节（新）','m2u://home_photomovie?materialId=16296650741246357122'],
+    ['拼图','m2u://home_puzzle'],
+    ['漫画脸-样式2','m2u://home_cartoon?materialId=3'],
+    ['神仙换脸-校园女神','m2u://home_changeface?materialId=8104911742779980083'],
+    ['手绘女主-宠爱百分百','m2u://home_handdrawn?materialId=2194375317087117584'],
+    ['素材中心','m2u://materialcenter'],
+    ['素材中心-贴图','m2u://materialcenter?func=pe_chartlet'],
+    ['素材中心-涂鸦','m2u://materialcenter?func=pe_graffiti'],
+    ['素材中心-文字','m2u://materialcenter?func=pe_text'],
+    ['素材中心-光斑','m2u://materialcenter?func=pe_facular'],
+    ['一键get模板','m2u://template'],
+    ["模板卡点-漫画女主","m2u://template_photomovie?catId=12&templateId=14977016718800844566"],
+    ["模板热拍-难道我又我又初恋了","m2u://template_hot?templateId=2416643655248031735"],
+    ["模板跟拍-口罩眼神杀","m2u://template_follow?catId=2&templateId=17331094596628156833"],
+    ["模板图片-发条朋友圈","m2u://template?catId=201&templateId=18076116336291257921"],
+    ["模板主题页-夏日天空","m2u://temp_theme?themeId=1002"],
 ]
 if __name__ == "__main__":
     pass
