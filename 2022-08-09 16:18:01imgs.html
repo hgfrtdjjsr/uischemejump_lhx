@@ -1,0 +1,274 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<title>My UItest</title>
+<style type="text/css">
+        #newVersion{display:inline}
+        #oldVersion{display:inline}
+        }</style>
+</head>
+<body><div id="myMainDiv" style="padding-left:40px;padding-top:20px;"><h2>是否有崩溃：</h2>
+<p>08-27 11:09:27.830  8968 14426 F debuggerd_handler: Fatal signal 11 (SIGSEGV), code 1 (SEGV_MAPERR), fault addr 0xffe4e4e4ffe4e4e4 in tid 14426 (DaenerysRender), pid 8968 (com.kwai.m2u)
+08-27 11:09:27.948 14452 14452 F CRASH   : pid: 8968, tid: 14426, name: DaenerysRender  >>> com.kwai.m2u <<<
+08-27 11:09:27.962 14452 14452 F CRASH   :       #00 pc 00000000007275e0  /data/app/~~_2XySse-h7zZ1_HBM6te-Q==/com.kwai.m2u-8b1JoG777VLG90nZtREh4Q==/lib/arm64/libFaceMagic.so (FM::Effect::BasicAdjust::resize(CGE::CGESizei const&)+8) (BuildId: 8b17768eccbe529e80bf0b03d5d73885)
+08-27 11:09:27.962 14452 14452 F CRASH   :       #01 pc 00000000002036b4  /data/app/~~_2XySse-h7zZ1_HBM6te-Q==/com.kwai.m2u-8b1JoG777VLG90nZtREh4Q==/lib/arm64/libFaceMagic.so (BuildId: 8b17768eccbe529e80bf0b03d5d73885)
+08-27 11:09:27.962 14452 14452 F CRASH   :       #02 pc 0000000000202f78  /data/app/~~_2XySse-h7zZ1_HBM6te-Q==/com.kwai.m2u-8b1JoG777VLG90nZtREh4Q==/lib/arm64/libFaceMagic.so (FM::Common::EffectHandler::resize(CGE::CGESizei const&)+148) (BuildId: 8b17768eccbe529e80bf0b03d5d73885)
+08-27 11:09:27.962 14452 14452 F CRASH   :       #03 pc 00000000000876fc  /data/app/~~_2XySse-h7zZ1_HBM6te-Q==/com.kwai.m2u-8b1JoG777VLG90nZtREh4Q==/lib/arm64/libxt-plugin.so (BuildId: 34a348f39e72978b6f1fc601bb7641ac)
+08-27 11:09:27.962 14452 14452 F CRASH   :       #04 pc 000000000006b004  /data/app/~~_2XySse-h7zZ1_HBM6te-Q==/com.kwai.m2u-8b1JoG777VLG90nZtREh4Q==/lib/arm64/libxt-plugin.so (BuildId: 34a348f39e72978b6f1fc601bb7641ac)
+08-27 11:09:27.962 14452 14452 F CRASH   :       #05 pc 00000000000680ac  /data/app/~~_2XySse-h7zZ1_HBM6te-Q==/com.kwai.m2u-8b1JoG777VLG90nZtREh4Q==/lib/arm64/libxt-plugin.so (BuildId: 34a348f39e72978b6f1fc601bb7641ac)
+08-27 11:09:27.962 14452 14452 F CRASH   :       #06 pc 000000000007eabc  /data/app/~~_2XySse-h7zZ1_HBM6te-Q==/com.kwai.m2u-8b1JoG777VLG90nZtREh4Q==/lib/arm64/libxt-plugin.so (BuildId: 34a348f39e72978b6f1fc601bb7641ac)
+08-27 11:09:27.962 14452 14452 F CRASH   :       #07 pc 000000000008af64  /data/app/~~_2XySse-h7zZ1_HBM6te-Q==/com.kwai.m2u-8b1JoG777VLG90nZtREh4Q==/lib/arm64/libxt-plugin.so (BuildId: 34a348f39e72978b6f1fc601bb7641ac)
+08-27 11:09:27.962 14452 14452 F CRASH   :       #08 pc 0000000000092318  /data/app/~~_2XySse-h7zZ1_HBM6te-Q==/com.kwai.m2u-8b1JoG777VLG90nZtREh4Q==/lib/arm64/libxt-plugin.so (BuildId: 34a348f39e72978b6f1fc601bb7641ac)
+08-27 11:09:27.962 14452 14452 F CRASH   :       #09 pc 00000000000b9318  /data/app/~~_2XySse-h7zZ1_HBM6te-Q==/com.kwai.m2u-8b1JoG777VLG90nZtREh4Q==/lib/arm64/libwesteros.so (BuildId: 46cb17149aca3b74eb0c5bf1b318afda)
+08-27 11:09:27.962 14452 14452 F CRASH   :       #10 pc 0000000000125900  /data/app/~~_2XySse-h7zZ1_HBM6te-Q==/com.kwai.m2u-8b1JoG777VLG90nZtREh4Q==/lib/arm64/libdaenerys.so (BuildId: 32aa77e54029438ef9a6b689cc358fda)
+08-27 11:09:27.962 14452 14452 F CRASH   :       #11 pc 0000000000115af8  /data/app/~~_2XySse-h7zZ1_HBM6te-Q==/com.kwai.m2u-8b1JoG777VLG90nZtREh4Q==/lib/arm64/libdaenerys.so (BuildId: 32aa77e54029438ef9a6b689cc358fda)
+08-27 11:09:27.962 14452 14452 F CRASH   :       #12 pc 000000000010d838  /data/app/~~_2XySse-h7zZ1_HBM6te-Q==/com.kwai.m2u-8b1JoG777VLG90nZtREh4Q==/lib/arm64/libdaenerys.so (BuildId: 32aa77e54029438ef9a6b689cc358fda)
+08-27 11:09:27.962 14452 14452 F CRASH   :       #13 pc 00000000000cdd10  /data/app/~~_2XySse-h7zZ1_HBM6te-Q==/com.kwai.m2u-8b1JoG777VLG90nZtREh4Q==/lib/arm64/libdaenerys.so (BuildId: 32aa77e54029438ef9a6b689cc358fda)
+08-27 11:09:27.962 14452 14452 F CRASH   :       #14 pc 000000000011a190  /data/app/~~_2XySse-h7zZ1_HBM6te-Q==/com.kwai.m2u-8b1JoG777VLG90nZtREh4Q==/lib/arm64/libdaenerys.so (BuildId: 32aa77e54029438ef9a6b689cc358fda)
+08-27 11:09:27.962 14452 14452 F CRASH   :       #15 pc 00000000000cdd10  /data/app/~~_2XySse-h7zZ1_HBM6te-Q==/com.kwai.m2u-8b1JoG777VLG90nZtREh4Q==/lib/arm64/libdaenerys.so (BuildId: 32aa77e54029438ef9a6b689cc358fda)
+08-27 11:09:27.962 14452 14452 F CRASH   :       #16 pc 00000000001d928c  /data/app/~~_2XySse-h7zZ1_HBM6te-Q==/com.kwai.m2u-8b1JoG777VLG90nZtREh4Q==/lib/arm64/libdaenerys.so (BuildId: 32aa77e54029438ef9a6b689cc358fda)
+08-27 11:09:27.962 14452 14452 F CRASH   :       #17 pc 00000000000cdd10  /data/app/~~_2XySse-h7zZ1_HBM6te-Q==/com.kwai.m2u-8b1JoG777VLG90nZtREh4Q==/lib/arm64/libdaenerys.so (BuildId: 32aa77e54029438ef9a6b689cc358fda)
+08-27 11:09:27.962 14452 14452 F CRASH   :       #18 pc 00000000000d1a64  /data/app/~~_2XySse-h7zZ1_HBM6te-Q==/com.kwai.m2u-8b1JoG777VLG90nZtREh4Q==/lib/arm64/libdaenerys.so (BuildId: 32aa77e54029438ef9a6b689cc358fda)
+08-27 11:09:27.962 14452 14452 F CRASH   :       #19 pc 00000000001cb89c  /data/app/~~_2XySse-h7zZ1_HBM6te-Q==/com.kwai.m2u-8b1JoG777VLG90nZtREh4Q==/lib/arm64/libdaenerys.so (BuildId: 32aa77e54029438ef9a6b689cc358fda)
+08-27 11:09:27.962 14452 14452 F CRASH   :       #20 pc 00000000000a0b00  /data/app/~~_2XySse-h7zZ1_HBM6te-Q==/com.kwai.m2u-8b1JoG777VLG90nZtREh4Q==/lib/arm64/libdaenerys.so (BuildId: 32aa77e54029438ef9a6b689cc358fda)
+08-27 11:09:27.962 14452 14452 F CRASH   :       #21 pc 00000000000a1258  /data/app/~~_2XySse-h7zZ1_HBM6te-Q==/com.kwai.m2u-8b1JoG777VLG90nZtREh4Q==/lib/arm64/libdaenerys.so (BuildId: 32aa77e54029438ef9a6b689cc358fda)
+08-27 11:09:27.962 14452 14452 F CRASH   :       #22 pc 00000000000b6ef0  /data/app/~~_2XySse-h7zZ1_HBM6te-Q==/com.kwai.m2u-8b1JoG777VLG90nZtREh4Q==/lib/arm64/libdaenerys.so (kuaishou::dbase::RunWithPlatformThreadWrapper(std::__ndk1::function<void ()>)+56) (BuildId: 32aa77e54029438ef9a6b689cc358fda)
+08-27 11:09:27.962 14452 14452 F CRASH   :       #23 pc 000000000009e2cc  /data/app/~~_2XySse-h7zZ1_HBM6te-Q==/com.kwai.m2u-8b1JoG777VLG90nZtREh4Q==/lib/arm64/libdaenerys.so (BuildId: 32aa77e54029438ef9a6b689cc358fda)
+08-27 11:09:27.962 14452 14452 F CRASH   :       #24 pc 00000000000a05cc  /data/app/~~_2XySse-h7zZ1_HBM6te-Q==/com.kwai.m2u-8b1JoG777VLG90nZtREh4Q==/lib/arm64/libdaenerys.so (BuildId: 32aa77e54029438ef9a6b689cc358fda)
+08-27 11:09:29.157  8968  8968 F libc    : Fatal signal 11 (SIGSEGV), code 0 (SI_USER) in tid 8968 (com.kwai.m2u), pid 8968 (com.kwai.m2u)
+08-27 11:09:29.296 14483 14483 F DEBUG   : pid: 8968, tid: 8968, name: com.kwai.m2u  >>> com.kwai.m2u <<<
+08-27 11:09:36.449 14511 15280 F debuggerd_handler: Fatal signal 11 (SIGSEGV), code 1 (SEGV_MAPERR), fault addr 0x21008503a40054 in tid 15280 (DaenerysRender), pid 14511 (com.kwai.m2u)
+08-27 11:09:36.586 15324 15324 F CRASH   : pid: 14511, tid: 15280, name: DaenerysRender  >>> com.kwai.m2u <<<
+08-27 11:09:36.588 15324 15324 F CRASH   :       #00 pc 00000000007275e0  /data/app/~~_2XySse-h7zZ1_HBM6te-Q==/com.kwai.m2u-8b1JoG777VLG90nZtREh4Q==/lib/arm64/libFaceMagic.so (FM::Effect::BasicAdjust::resize(CGE::CGESizei const&)+8) (BuildId: 8b17768eccbe529e80bf0b03d5d73885)
+08-27 11:09:36.588 15324 15324 F CRASH   :       #01 pc 00000000002036b4  /data/app/~~_2XySse-h7zZ1_HBM6te-Q==/com.kwai.m2u-8b1JoG777VLG90nZtREh4Q==/lib/arm64/libFaceMagic.so (BuildId: 8b17768eccbe529e80bf0b03d5d73885)
+08-27 11:09:36.588 15324 15324 F CRASH   :       #02 pc 0000000000202f78  /data/app/~~_2XySse-h7zZ1_HBM6te-Q==/com.kwai.m2u-8b1JoG777VLG90nZtREh4Q==/lib/arm64/libFaceMagic.so (FM::Common::EffectHandler::resize(CGE::CGESizei const&)+148) (BuildId: 8b17768eccbe529e80bf0b03d5d73885)
+08-27 11:09:36.588 15324 15324 F CRASH   :       #03 pc 00000000000876fc  /data/app/~~_2XySse-h7zZ1_HBM6te-Q==/com.kwai.m2u-8b1JoG777VLG90nZtREh4Q==/lib/arm64/libxt-plugin.so (BuildId: 34a348f39e72978b6f1fc601bb7641ac)
+08-27 11:09:36.588 15324 15324 F CRASH   :       #04 pc 000000000006b004  /data/app/~~_2XySse-h7zZ1_HBM6te-Q==/com.kwai.m2u-8b1JoG777VLG90nZtREh4Q==/lib/arm64/libxt-plugin.so (BuildId: 34a348f39e72978b6f1fc601bb7641ac)
+08-27 11:09:36.588 15324 15324 F CRASH   :       #05 pc 00000000000680ac  /data/app/~~_2XySse-h7zZ1_HBM6te-Q==/com.kwai.m2u-8b1JoG777VLG90nZtREh4Q==/lib/arm64/libxt-plugin.so (BuildId: 34a348f39e72978b6f1fc601bb7641ac)
+08-27 11:09:36.588 15324 15324 F CRASH   :       #06 pc 000000000007eabc  /data/app/~~_2XySse-h7zZ1_HBM6te-Q==/com.kwai.m2u-8b1JoG777VLG90nZtREh4Q==/lib/arm64/libxt-plugin.so (BuildId: 34a348f39e72978b6f1fc601bb7641ac)
+08-27 11:09:36.588 15324 15324 F CRASH   :       #07 pc 000000000008af64  /data/app/~~_2XySse-h7zZ1_HBM6te-Q==/com.kwai.m2u-8b1JoG777VLG90nZtREh4Q==/lib/arm64/libxt-plugin.so (BuildId: 34a348f39e72978b6f1fc601bb7641ac)
+08-27 11:09:36.588 15324 15324 F CRASH   :       #08 pc 0000000000092318  /data/app/~~_2XySse-h7zZ1_HBM6te-Q==/com.kwai.m2u-8b1JoG777VLG90nZtREh4Q==/lib/arm64/libxt-plugin.so (BuildId: 34a348f39e72978b6f1fc601bb7641ac)
+08-27 11:09:36.588 15324 15324 F CRASH   :       #09 pc 00000000000b9318  /data/app/~~_2XySse-h7zZ1_HBM6te-Q==/com.kwai.m2u-8b1JoG777VLG90nZtREh4Q==/lib/arm64/libwesteros.so (BuildId: 46cb17149aca3b74eb0c5bf1b318afda)
+08-27 11:09:36.588 15324 15324 F CRASH   :       #10 pc 0000000000125900  /data/app/~~_2XySse-h7zZ1_HBM6te-Q==/com.kwai.m2u-8b1JoG777VLG90nZtREh4Q==/lib/arm64/libdaenerys.so (BuildId: 32aa77e54029438ef9a6b689cc358fda)
+08-27 11:09:36.588 15324 15324 F CRASH   :       #11 pc 0000000000115af8  /data/app/~~_2XySse-h7zZ1_HBM6te-Q==/com.kwai.m2u-8b1JoG777VLG90nZtREh4Q==/lib/arm64/libdaenerys.so (BuildId: 32aa77e54029438ef9a6b689cc358fda)
+08-27 11:09:36.588 15324 15324 F CRASH   :       #12 pc 000000000010d838  /data/app/~~_2XySse-h7zZ1_HBM6te-Q==/com.kwai.m2u-8b1JoG777VLG90nZtREh4Q==/lib/arm64/libdaenerys.so (BuildId: 32aa77e54029438ef9a6b689cc358fda)
+08-27 11:09:36.588 15324 15324 F CRASH   :       #13 pc 00000000000cdd10  /data/app/~~_2XySse-h7zZ1_HBM6te-Q==/com.kwai.m2u-8b1JoG777VLG90nZtREh4Q==/lib/arm64/libdaenerys.so (BuildId: 32aa77e54029438ef9a6b689cc358fda)
+08-27 11:09:36.588 15324 15324 F CRASH   :       #14 pc 000000000011a190  /data/app/~~_2XySse-h7zZ1_HBM6te-Q==/com.kwai.m2u-8b1JoG777VLG90nZtREh4Q==/lib/arm64/libdaenerys.so (BuildId: 32aa77e54029438ef9a6b689cc358fda)
+08-27 11:09:36.588 15324 15324 F CRASH   :       #15 pc 00000000000cdd10  /data/app/~~_2XySse-h7zZ1_HBM6te-Q==/com.kwai.m2u-8b1JoG777VLG90nZtREh4Q==/lib/arm64/libdaenerys.so (BuildId: 32aa77e54029438ef9a6b689cc358fda)
+08-27 11:09:36.588 15324 15324 F CRASH   :       #16 pc 00000000001d928c  /data/app/~~_2XySse-h7zZ1_HBM6te-Q==/com.kwai.m2u-8b1JoG777VLG90nZtREh4Q==/lib/arm64/libdaenerys.so (BuildId: 32aa77e54029438ef9a6b689cc358fda)
+08-27 11:09:36.588 15324 15324 F CRASH   :       #17 pc 00000000000cdd10  /data/app/~~_2XySse-h7zZ1_HBM6te-Q==/com.kwai.m2u-8b1JoG777VLG90nZtREh4Q==/lib/arm64/libdaenerys.so (BuildId: 32aa77e54029438ef9a6b689cc358fda)
+08-27 11:09:36.588 15324 15324 F CRASH   :       #18 pc 00000000000d1a64  /data/app/~~_2XySse-h7zZ1_HBM6te-Q==/com.kwai.m2u-8b1JoG777VLG90nZtREh4Q==/lib/arm64/libdaenerys.so (BuildId: 32aa77e54029438ef9a6b689cc358fda)
+08-27 11:09:36.588 15324 15324 F CRASH   :       #19 pc 00000000001cb89c  /data/app/~~_2XySse-h7zZ1_HBM6te-Q==/com.kwai.m2u-8b1JoG777VLG90nZtREh4Q==/lib/arm64/libdaenerys.so (BuildId: 32aa77e54029438ef9a6b689cc358fda)
+08-27 11:09:36.588 15324 15324 F CRASH   :       #20 pc 00000000000a0b00  /data/app/~~_2XySse-h7zZ1_HBM6te-Q==/com.kwai.m2u-8b1JoG777VLG90nZtREh4Q==/lib/arm64/libdaenerys.so (BuildId: 32aa77e54029438ef9a6b689cc358fda)
+08-27 11:09:36.588 15324 15324 F CRASH   :       #21 pc 00000000000a1258  /data/app/~~_2XySse-h7zZ1_HBM6te-Q==/com.kwai.m2u-8b1JoG777VLG90nZtREh4Q==/lib/arm64/libdaenerys.so (BuildId: 32aa77e54029438ef9a6b689cc358fda)
+08-27 11:09:36.588 15324 15324 F CRASH   :       #22 pc 00000000000b6ef0  /data/app/~~_2XySse-h7zZ1_HBM6te-Q==/com.kwai.m2u-8b1JoG777VLG90nZtREh4Q==/lib/arm64/libdaenerys.so (kuaishou::dbase::RunWithPlatformThreadWrapper(std::__ndk1::function<void ()>)+56) (BuildId: 32aa77e54029438ef9a6b689cc358fda)
+08-27 11:09:36.588 15324 15324 F CRASH   :       #23 pc 000000000009e2cc  /data/app/~~_2XySse-h7zZ1_HBM6te-Q==/com.kwai.m2u-8b1JoG777VLG90nZtREh4Q==/lib/arm64/libdaenerys.so (BuildId: 32aa77e54029438ef9a6b689cc358fda)
+08-27 11:09:36.588 15324 15324 F CRASH   :       #24 pc 00000000000a05cc  /data/app/~~_2XySse-h7zZ1_HBM6te-Q==/com.kwai.m2u-8b1JoG777VLG90nZtREh4Q==/lib/arm64/libdaenerys.so (BuildId: 32aa77e54029438ef9a6b689cc358fda)
+08-27 11:09:38.552 14511 14521 F libc    : Fatal signal 11 (SIGSEGV), code 0 (SI_USER) in tid 14521 (Signal Catcher), pid 14511 (com.kwai.m2u)
+08-27 11:09:38.678 15379 15379 F DEBUG   : pid: 14511, tid: 14521, name: Signal Catcher  >>> com.kwai.m2u <<<
+08-27 11:09:48.234 15388 15924 F debuggerd_handler: Fatal signal 11 (SIGSEGV), code 1 (SEGV_MAPERR), fault addr 0xffe6e1e2ffe6e1e2 in tid 15924 (DaenerysRender), pid 15388 (com.kwai.m2u)
+08-27 11:09:48.343 15955 15955 F CRASH   : pid: 15388, tid: 15924, name: DaenerysRender  >>> com.kwai.m2u <<<
+08-27 11:09:48.345 15955 15955 F CRASH   :       #00 pc 00000000007275e0  /data/app/~~_2XySse-h7zZ1_HBM6te-Q==/com.kwai.m2u-8b1JoG777VLG90nZtREh4Q==/lib/arm64/libFaceMagic.so (FM::Effect::BasicAdjust::resize(CGE::CGESizei const&)+8) (BuildId: 8b17768eccbe529e80bf0b03d5d73885)
+08-27 11:09:48.345 15955 15955 F CRASH   :       #01 pc 00000000002036b4  /data/app/~~_2XySse-h7zZ1_HBM6te-Q==/com.kwai.m2u-8b1JoG777VLG90nZtREh4Q==/lib/arm64/libFaceMagic.so (BuildId: 8b17768eccbe529e80bf0b03d5d73885)
+08-27 11:09:48.345 15955 15955 F CRASH   :       #02 pc 0000000000202f78  /data/app/~~_2XySse-h7zZ1_HBM6te-Q==/com.kwai.m2u-8b1JoG777VLG90nZtREh4Q==/lib/arm64/libFaceMagic.so (FM::Common::EffectHandler::resize(CGE::CGESizei const&)+148) (BuildId: 8b17768eccbe529e80bf0b03d5d73885)
+08-27 11:09:48.345 15955 15955 F CRASH   :       #03 pc 00000000000876fc  /data/app/~~_2XySse-h7zZ1_HBM6te-Q==/com.kwai.m2u-8b1JoG777VLG90nZtREh4Q==/lib/arm64/libxt-plugin.so (BuildId: 34a348f39e72978b6f1fc601bb7641ac)
+08-27 11:09:48.345 15955 15955 F CRASH   :       #04 pc 000000000006b004  /data/app/~~_2XySse-h7zZ1_HBM6te-Q==/com.kwai.m2u-8b1JoG777VLG90nZtREh4Q==/lib/arm64/libxt-plugin.so (BuildId: 34a348f39e72978b6f1fc601bb7641ac)
+08-27 11:09:48.345 15955 15955 F CRASH   :       #05 pc 00000000000680ac  /data/app/~~_2XySse-h7zZ1_HBM6te-Q==/com.kwai.m2u-8b1JoG777VLG90nZtREh4Q==/lib/arm64/libxt-plugin.so (BuildId: 34a348f39e72978b6f1fc601bb7641ac)
+08-27 11:09:48.345 15955 15955 F CRASH   :       #06 pc 000000000007eabc  /data/app/~~_2XySse-h7zZ1_HBM6te-Q==/com.kwai.m2u-8b1JoG777VLG90nZtREh4Q==/lib/arm64/libxt-plugin.so (BuildId: 34a348f39e72978b6f1fc601bb7641ac)
+08-27 11:09:48.345 15955 15955 F CRASH   :       #07 pc 000000000008af64  /data/app/~~_2XySse-h7zZ1_HBM6te-Q==/com.kwai.m2u-8b1JoG777VLG90nZtREh4Q==/lib/arm64/libxt-plugin.so (BuildId: 34a348f39e72978b6f1fc601bb7641ac)
+08-27 11:09:48.345 15955 15955 F CRASH   :       #08 pc 0000000000092318  /data/app/~~_2XySse-h7zZ1_HBM6te-Q==/com.kwai.m2u-8b1JoG777VLG90nZtREh4Q==/lib/arm64/libxt-plugin.so (BuildId: 34a348f39e72978b6f1fc601bb7641ac)
+08-27 11:09:48.345 15955 15955 F CRASH   :       #09 pc 00000000000b9318  /data/app/~~_2XySse-h7zZ1_HBM6te-Q==/com.kwai.m2u-8b1JoG777VLG90nZtREh4Q==/lib/arm64/libwesteros.so (BuildId: 46cb17149aca3b74eb0c5bf1b318afda)
+08-27 11:09:48.345 15955 15955 F CRASH   :       #10 pc 0000000000125900  /data/app/~~_2XySse-h7zZ1_HBM6te-Q==/com.kwai.m2u-8b1JoG777VLG90nZtREh4Q==/lib/arm64/libdaenerys.so (BuildId: 32aa77e54029438ef9a6b689cc358fda)
+08-27 11:09:48.345 15955 15955 F CRASH   :       #11 pc 0000000000115af8  /data/app/~~_2XySse-h7zZ1_HBM6te-Q==/com.kwai.m2u-8b1JoG777VLG90nZtREh4Q==/lib/arm64/libdaenerys.so (BuildId: 32aa77e54029438ef9a6b689cc358fda)
+08-27 11:09:48.345 15955 15955 F CRASH   :       #12 pc 000000000010d838  /data/app/~~_2XySse-h7zZ1_HBM6te-Q==/com.kwai.m2u-8b1JoG777VLG90nZtREh4Q==/lib/arm64/libdaenerys.so (BuildId: 32aa77e54029438ef9a6b689cc358fda)
+08-27 11:09:48.345 15955 15955 F CRASH   :       #13 pc 00000000000cdd10  /data/app/~~_2XySse-h7zZ1_HBM6te-Q==/com.kwai.m2u-8b1JoG777VLG90nZtREh4Q==/lib/arm64/libdaenerys.so (BuildId: 32aa77e54029438ef9a6b689cc358fda)
+08-27 11:09:48.345 15955 15955 F CRASH   :       #14 pc 000000000011a190  /data/app/~~_2XySse-h7zZ1_HBM6te-Q==/com.kwai.m2u-8b1JoG777VLG90nZtREh4Q==/lib/arm64/libdaenerys.so (BuildId: 32aa77e54029438ef9a6b689cc358fda)
+08-27 11:09:48.345 15955 15955 F CRASH   :       #15 pc 00000000000cdd10  /data/app/~~_2XySse-h7zZ1_HBM6te-Q==/com.kwai.m2u-8b1JoG777VLG90nZtREh4Q==/lib/arm64/libdaenerys.so (BuildId: 32aa77e54029438ef9a6b689cc358fda)
+08-27 11:09:48.345 15955 15955 F CRASH   :       #16 pc 00000000001d928c  /data/app/~~_2XySse-h7zZ1_HBM6te-Q==/com.kwai.m2u-8b1JoG777VLG90nZtREh4Q==/lib/arm64/libdaenerys.so (BuildId: 32aa77e54029438ef9a6b689cc358fda)
+08-27 11:09:48.345 15955 15955 F CRASH   :       #17 pc 00000000000cdd10  /data/app/~~_2XySse-h7zZ1_HBM6te-Q==/com.kwai.m2u-8b1JoG777VLG90nZtREh4Q==/lib/arm64/libdaenerys.so (BuildId: 32aa77e54029438ef9a6b689cc358fda)
+08-27 11:09:48.345 15955 15955 F CRASH   :       #18 pc 00000000000d1a64  /data/app/~~_2XySse-h7zZ1_HBM6te-Q==/com.kwai.m2u-8b1JoG777VLG90nZtREh4Q==/lib/arm64/libdaenerys.so (BuildId: 32aa77e54029438ef9a6b689cc358fda)
+08-27 11:09:48.345 15955 15955 F CRASH   :       #19 pc 00000000001cb89c  /data/app/~~_2XySse-h7zZ1_HBM6te-Q==/com.kwai.m2u-8b1JoG777VLG90nZtREh4Q==/lib/arm64/libdaenerys.so (BuildId: 32aa77e54029438ef9a6b689cc358fda)
+08-27 11:09:48.345 15955 15955 F CRASH   :       #20 pc 00000000000a0b00  /data/app/~~_2XySse-h7zZ1_HBM6te-Q==/com.kwai.m2u-8b1JoG777VLG90nZtREh4Q==/lib/arm64/libdaenerys.so (BuildId: 32aa77e54029438ef9a6b689cc358fda)
+08-27 11:09:48.345 15955 15955 F CRASH   :       #21 pc 00000000000a1258  /data/app/~~_2XySse-h7zZ1_HBM6te-Q==/com.kwai.m2u-8b1JoG777VLG90nZtREh4Q==/lib/arm64/libdaenerys.so (BuildId: 32aa77e54029438ef9a6b689cc358fda)
+08-27 11:09:48.345 15955 15955 F CRASH   :       #22 pc 00000000000b6ef0  /data/app/~~_2XySse-h7zZ1_HBM6te-Q==/com.kwai.m2u-8b1JoG777VLG90nZtREh4Q==/lib/arm64/libdaenerys.so (kuaishou::dbase::RunWithPlatformThreadWrapper(std::__ndk1::function<void ()>)+56) (BuildId: 32aa77e54029438ef9a6b689cc358fda)
+08-27 11:09:48.345 15955 15955 F CRASH   :       #23 pc 000000000009e2cc  /data/app/~~_2XySse-h7zZ1_HBM6te-Q==/com.kwai.m2u-8b1JoG777VLG90nZtREh4Q==/lib/arm64/libdaenerys.so (BuildId: 32aa77e54029438ef9a6b689cc358fda)
+08-27 11:09:48.345 15955 15955 F CRASH   :       #24 pc 00000000000a05cc  /data/app/~~_2XySse-h7zZ1_HBM6te-Q==/com.kwai.m2u-8b1JoG777VLG90nZtREh4Q==/lib/arm64/libdaenerys.so (BuildId: 32aa77e54029438ef9a6b689cc358fda)
+08-27 11:09:49.972 15388 15388 F libc    : Fatal signal 11 (SIGSEGV), code 0 (SI_USER) in tid 15388 (com.kwai.m2u), pid 15388 (com.kwai.m2u)
+08-27 11:09:50.101 15989 15989 F DEBUG   : pid: 15388, tid: 15388, name: com.kwai.m2u  >>> com.kwai.m2u <<<
+</p>
+<h2>测试机信息：</h2>
+<p>测试机类型：Android 测试机版本：11</p>
+<div id="sheetDiv" style="white-space: nowrap;"><h2>截图：</h2>
+</div>
+</div>
+<table style="padding-left:40px;"><tr><td><p>拍视频页，贴纸：猫咪脸，打开面板</p>
+<img src="imgtemporarypath/1660031478725.png" border="1" width="260" />
+</td>
+<td><p>拍视频页，贴纸：星空妆，打开面板</p>
+<img src="imgtemporarypath/1660031512832.png" border="1" width="260" />
+</td>
+<td><p>拍照页，音乐：甜蜜暴击，MV：黑白格，打开面板</p>
+<img src="imgtemporarypath/1660031545806.png" border="1" width="260" />
+</td>
+<td><p>拍前美妆</p>
+<img src="imgtemporarypath/1660031578769.png" border="1" width="260" />
+</td>
+<td><p>跟拍-奶凶喵</p>
+<img src="imgtemporarypath/1660031611792.png" border="1" width="260" />
+</td>
+<td><p>卡点视频-慢热</p>
+<img src="imgtemporarypath/1660031644520.png" border="1" width="260" />
+</td>
+<td><p>模板首页</p>
+<img src="imgtemporarypath/1660031677061.png" border="1" width="260" />
+</td>
+<td><p>模板卡点-漫画女主</p>
+<img src="imgtemporarypath/1660031709687.png" border="1" width="260" />
+</td>
+<td><p>模板热拍-难道我又我又初恋了</p>
+<img src="imgtemporarypath/1660031742383.png" border="1" width="260" />
+</td>
+<td><p>模板跟拍-口罩眼神杀</p>
+<img src="imgtemporarypath/1660031775414.png" border="1" width="260" />
+</td>
+<td><p>模板图片-发条朋友圈</p>
+<img src="imgtemporarypath/1660031808185.png" border="1" width="260" />
+</td>
+<td><p>模板主题页-夏日天空</p>
+<img src="imgtemporarypath/1660031840813.png" border="1" width="260" />
+</td>
+<td><p>一键get-图片-分类：快手爆款</p>
+<img src="imgtemporarypath/1660031873507.png" border="1" width="260" />
+</td>
+<td><p>一键get-图片-分类：天空便利店-可爱天空</p>
+<img src="imgtemporarypath/1660031906073.png" border="1" width="260" />
+</td>
+<td><p>卡点视频-变身漫画女主</p>
+<img src="imgtemporarypath/1660031938979.png" border="1" width="260" />
+</td>
+<td><p>拼图</p>
+<img src="imgtemporarypath/1660031971642.png" border="1" width="260" />
+</td>
+<td><p>素材中心-童话脸</p>
+<img src="imgtemporarypath/1660032004221.png" border="1" width="260" />
+</td>
+<td><p>素材中心-性别双修术</p>
+<img src="imgtemporarypath/1660032037049.png" border="1" width="260" />
+</td>
+<td><p>素材中心-芭比魔法术</p>
+<img src="imgtemporarypath/1660032069666.png" border="1" width="260" />
+</td>
+<td><p>素材中心-手绘女主</p>
+<img src="imgtemporarypath/1660032102268.png" border="1" width="260" />
+</td>
+<td><p>素材中心-生发屋</p>
+<img src="imgtemporarypath/1660032135122.png" border="1" width="260" />
+</td>
+<td><p>素材中心-全家福</p>
+<img src="imgtemporarypath/1660032167728.png" border="1" width="260" />
+</td>
+<td><p>素材中心-漫画脸-样式2</p>
+<img src="imgtemporarypath/1660032200101.png" border="1" width="260" />
+</td>
+<td><p>神仙换脸-校园女神</p>
+<img src="imgtemporarypath/1660032232632.png" border="1" width="260" />
+</td>
+<td><p>手绘女主-宠爱百分百</p>
+<img src="imgtemporarypath/1660032265490.png" border="1" width="260" />
+</td>
+<td><p>249之后版本：魔法抠图</p>
+<img src="imgtemporarypath/1660032301385.png" border="1" width="260" />
+</td>
+<td><p>一级页-玩法</p>
+<img src="imgtemporarypath/1660032324941.png" border="1" width="260" />
+</td>
+<td><p>风格-自然-滤镜-50</p>
+<img src="imgtemporarypath/1660032348523.png" border="1" width="260" />
+</td>
+<td><p>超清人像-75</p>
+<img src="imgtemporarypath/1660032372101.png" border="1" width="260" />
+</td>
+<td><p>美妆-口红-90</p>
+<img src="imgtemporarypath/1660032395672.png" border="1" width="260" />
+</td>
+<td><p>染发-落日橙-100</p>
+<img src="imgtemporarypath/1660032418506.png" border="1" width="260" />
+</td>
+<td><p>柔发-100</p>
+<img src="imgtemporarypath/1660032441352.png" border="1" width="260" />
+</td>
+<td><p>美体-一键瘦身</p>
+<img src="imgtemporarypath/1660032464157.png" border="1" width="260" />
+</td>
+<td><p>细调-自动优化-100</p>
+<img src="imgtemporarypath/1660032486932.png" border="1" width="260" />
+</td>
+<td><p>纹理-划痕-100</p>
+<img src="imgtemporarypath/1660032509745.png" border="1" width="260" />
+</td>
+<td><p>裁剪</p>
+<img src="imgtemporarypath/1660032532625.png" border="1" width="260" />
+</td>
+<td><p>旋转矫正</p>
+<img src="imgtemporarypath/1660032555401.png" border="1" width="260" />
+</td>
+<td><p>贴图-蕉个朋友</p>
+<img src="imgtemporarypath/1660032578197.png" border="1" width="260" />
+</td>
+<td><p>涂鸦笔-桃子爱心</p>
+<img src="imgtemporarypath/1660032601029.png" border="1" width="260" />
+</td>
+<td><p>贴纸-质感-星空-30</p>
+<img src="imgtemporarypath/1660032623792.png" border="1" width="260" />
+</td>
+<td><p>文字贴纸</p>
+<img src="imgtemporarypath/1660032647029.png" border="1" width="260" />
+</td>
+<td><p>光斑-图形光-蝴蝶-100</p>
+<img src="imgtemporarypath/1660032669898.png" border="1" width="260" />
+</td>
+<td><p>线条描边-荧光笔</p>
+<img src="imgtemporarypath/1660032692791.png" border="1" width="260" />
+</td>
+<td><p>虚化-动感-100</p>
+<img src="imgtemporarypath/1660032715665.png" border="1" width="260" />
+</td>
+<td><p>边框+素材</p>
+<img src="imgtemporarypath/1660032738678.png" border="1" width="260" />
+</td>
+<td><p>肤色-深小麦</p>
+<img src="imgtemporarypath/1660032762120.png" border="1" width="260" />
+</td>
+<td><p>马赛克-经典2</p>
+<img src="imgtemporarypath/1660032785022.png" border="1" width="260" />
+</td>
+<td><p>抠图</p>
+<img src="imgtemporarypath/1660032807866.png" border="1" width="260" />
+</td>
+<td><p>文字-花字</p>
+<img src="imgtemporarypath/1660032830766.png" border="1" width="260" />
+</td>
+<td><p>文字-字体tab-汉仪跳跳体</p>
+<img src="imgtemporarypath/1660032853637.png" border="1" width="260" />
+</td>
+<td><p>边框-踏春小熊</p>
+<img src="imgtemporarypath/1660032876531.png" border="1" width="260" />
+</td>
+<td><p>放大镜</p>
+<img src="imgtemporarypath/1660032899588.png" border="1" width="260" />
+</td>
+<td><p>拍视频页，贴纸：猫咪脸，打开面板</p>
+<img src="imgtemporarypath/1660032944305.png" border="1" width="260" />
+</td>
+<td><p>拍视频页，贴纸：星空妆，打开面板</p>
+<img src="imgtemporarypath/1660032989488.png" border="1" width="260" />
+</td>
+<td><p>拍照页，音乐：甜蜜暴击，MV：黑白格，打开面板</p>
+<img src="imgtemporarypath/1660033034674.png" border="1" width="260" />
+</td>
+<td><p>拍前美妆</p>
+<img src="imgtemporarypath/1660033079808.png" border="1" width="260" />
+</td>
+</tr>
+</table>
+</body>
+</html>
