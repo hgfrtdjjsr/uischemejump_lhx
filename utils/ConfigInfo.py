@@ -14,6 +14,7 @@ takephotocoreBaseConfig = [
 #直接跳转类
 takephotoBaseConfig = [
     ['拍视频页，贴纸：猫咪脸，打开面板', "m2u://m2u_home/sticker?materialId=6473365848767430154\'&\'catId=48\'&\'openSticker=1"],
+    ['跳转到贴图商店',"m2u://chartlet_store?moreCatId=-20\co'&\'moreZipId=17927511266749525981"],
     ['拍视频页，贴纸：星空妆，打开面板',
      "m2u://m2u_home/sticker?materialId=11653675879495264054\'&\'catId=10\'&\'openSticker=1"],
     ['拍照页，音乐：甜蜜暴击，MV：黑白格，打开面板',
